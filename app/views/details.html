@@ -1,0 +1,15 @@
+<section ng-controller = "DetailCtrl" ng-model="index" class="artistinfo">
+ 
+
+  <div class="artist cf" ng-model="artist">
+    <h1>{{artist.data[index].name}}</h1>
+    <div class="info">
+      <h3>{{artist.data[index].reknown}}</h3>
+      <img ng-src="images/{{artist.data[index].shortname}}_tn.jpg" alt="Photo of {{artists.name}}">
+      <div class="bio">{{artist.data[index].bio}}</div>
+    </div>
+  </div>
+  <a ng-href="index.html">&laquo; Back to search</a>
+  <a class="prev" ng-click="prevs()" ng-href="#!/list/{{prev}}"> << prev</a>
+  <a class="next" ng-click="nexts()" ng-href="#!/list/{{next}}"> next >> </a>
+</section>

@@ -1,0 +1,37 @@
+{
+  "name": "capstone",
+  "version": "1.0.0",
+  "description": "Final Proyect",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon src/index.js"
+  },
+  "author": "Alejandro Fidanza",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mercurio-developing/capstone.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mercurio-developing/capstone/issues"
+  },
+  "homepage": "https://github.com/mercurio-developing/capstone#readme",
+  "dependencies": {
+    "angular": "^1.5.3",
+    "angular-route": "^1.5.3",
+    "body-parser": "1.14.2",
+    "express": "4.13.4",
+    "mongoose": "4.4.5",
+    "mongoose-sequence": "^3.2.0",
+    "ngmap": "^1.18.4",
+    "yelpv3": "^1.2.1",
+    "gulp": "^3.8.8",
+    "gulp-util": "^2.2.20",
+    "gulp-webserver": "^0.8.1"
+  },
+  "devDependencies": {
+    "mongoose-seeder": "^1.2.1",
+    "path": "^0.12.7"
+  }
+}
