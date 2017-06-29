@@ -26,7 +26,7 @@ app.use(cors({origin:true,credentials: true}));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
-    extended: true
+    extended: false
 }));
 
 // app.use('/api', jwtExpress({secret: secretKey}));

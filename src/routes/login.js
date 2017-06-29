@@ -8,6 +8,9 @@ const jwt = require("jsonwebtoken");
 
 router.post("/",function(req, res,next) {
 	  		// create object 
+
+	  		 console.log(req.body)
+	  		 
 			 if (req.body.email &&
 		       	req.body.password) {
 

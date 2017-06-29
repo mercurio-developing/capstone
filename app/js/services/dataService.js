@@ -5,7 +5,6 @@
 	angular
 		.module('app')
 		.service('dataService', dataService)
-
 function dataService ($http,$localStorage,$rootScope){
 		
 		// 	this.getAuth = function(callback){
@@ -13,15 +12,11 @@ function dataService ($http,$localStorage,$rootScope){
   //  			headers: {'Authorization': 'Bearer ' + $localStorage.token}
 		//     }).then(callback)
 		// }    	
-			this.getResults = function(callback){
-		    $http.get('api/artist/', {
-   			headers: {'Authorization': 'Bearer ' + $localStorage.token}
-		    }).then(callback)
+			this.getResults = function(searching,callback){
+		    $http.post('/api/google/search',searching).then(callback)
 		}    
 			this.getDetail = function(id,callback){
-			$http.get(`api/artist/${id}`,{
-   			headers: {'Authorization': 'Bearer ' + $localStorage.token}
-			}).then(callback)   
+			$http.get(`api/artist/${id}`,id).then(callback)   
 		}
 		
 		 	this.getUserId = function(id,callback){
@@ -37,18 +32,5 @@ function dataService ($http,$localStorage,$rootScope){
 		    $http.post('/login', user)
 		    .then(callback,errorCallback)
 	   }
-	   	this.googleSearch = function(callback){
-		    $http.get('https://www.googleapis.com/youtube/v3/search', {
-            params: {
-                key: "AIzaSyBExANSRh5djbndw0--QxN6ulEN6DcKetQ",
-                type: 'video',
-                maxResults: '12',
-                // pageToken: $scope.nextPage ? $scope.nextPage : '',
-                part: 'id,snippet',
-                fields: 'items/id,items/snippet/title,items/snippet/description,items/snippet/thumbnails/default,items/snippet/channelTitle,nextPageToken,prevPageToken',
-                q: 'judas priest'
-            	}
-       		}).then(callback)
-		};
 	}
 })();

@@ -3,9 +3,9 @@
 const express = require("express");
 const router  = express.Router();
 var google = require('googleapis');
-var sampleClient = require('./api');
 var util = require('util');
 const resultSearch = new Array();
+const createClient = new Object();
 
 var youtube = google.youtube({
   version: 'v3',
@@ -13,13 +13,13 @@ var youtube = google.youtube({
 });
 
 
-
-router.get("/",function(req,res){
+router.post("/search",function(req,res){
   // a very simple example of searching for youtube videos
+  console.log(req.body)
 
  var request1 = youtube.search.list({
      part: 'id,snippet',
-     q: 'Accept - Ball to the Walls'
+     q: req.body.query
    }, function (err, data) {
      if (err) {
        console.error('Error: ' + err);
@@ -31,7 +31,19 @@ router.get("/",function(req,res){
    })
 });
 
+router.get("/maps",function(req,res){
 
+var googleMapsClient = require('@google/maps').createClient({
+  key: 'AIzaSyBDxB0YAtqEVlm5aI-FsYi5tHiXK-oqv4A'
+});
 
-
+// Geocode an address.
+googleMapsClient.geocode({
+  address: '1027 vista grande drive, Colorado Springs, CO'
+}, function(err, response) {
+  if (!err) {
+    res.send(response.json.results);
+  }
+});
+});
 module.exports = router

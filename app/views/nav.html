@@ -1,7 +1,13 @@
-  <div class="branding"><a ng-href="#!/">My Proyect</a></div>
-  <ul>
-    <li><a ng-show="!isLoggedIn()" ng-href="#!/login">Login</a></li>
-    <li><a ng-show="!isLoggedIn()" ng-href="#!/register">Register</a></li>
-    <li><a ng-show="isLoggedIn()" ng-href="#!/login" ng-click="logout()">Logout</a></li>
-
-  </ul>
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#">My Proyect</a>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a ng-show="!isLoggedIn()" ng-href="#!/login">Login</a>
+	  <a ng-show="!isLoggedIn()" ng-href="#!/register">Register</a>
+	  <a ng-show="isLoggedIn()" ng-href="#!/login" ng-click="logout()">Logout</a>
+    </div>
+  </div>
+</nav>
