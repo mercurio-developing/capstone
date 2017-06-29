@@ -1,5 +1,7 @@
   <div class="branding"><a ng-href="#!/">My Proyect</a></div>
   <ul>
-    <li><a ng-hide="currentUser" ng-href="#!/login">Login</a></li>
-    <li><a ng-hide="currentUser" ng-href="#!/register">Register</a></li>
+    <li><a ng-show="!isLoggedIn()" ng-href="#!/login">Login</a></li>
+    <li><a ng-show="!isLoggedIn()" ng-href="#!/register">Register</a></li>
+    <li><a ng-show="isLoggedIn()" ng-href="#!/login" ng-click="logout()">Logout</a></li>
+
   </ul>

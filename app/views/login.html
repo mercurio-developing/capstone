@@ -1,13 +1,13 @@
 <section class="card login">
   <form name="myform"
-    ng-submit="login()"
+    ng-submit="login();update()"
     novalidate>
 
     <div class="textintro">
       <h1>Hi there!</h1>
-      <p>Log-in to access the awesomeness!</p>
+      <p>Log-in to access the!</p>
       <p class="message" 
-        ng-show="message"> {{ message }}</p>
+        ng-show="message"></p>
     </div>
 
     <fieldset>
@@ -28,6 +28,6 @@
 
     <button type="submit" class="btn"
       ng-disabled="myform.$invalid">Login</button>
-    <p>or <a ng-href="#/register">register</a></p>
+    <p>or <a ng-href="#!/register">register</a></p>
   </form>
 </section>

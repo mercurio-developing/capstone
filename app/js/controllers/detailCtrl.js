@@ -5,12 +5,13 @@
 		.module('app')
 		.controller('DetailCtrl', DetailCtrl);	
 
-function DetailCtrl ($scope,dataService,$location) {
+function DetailCtrl($scope,dataService,$location) {
 
 const id = Number($location.url().split('/')[2]);
 
-dataService.getResult(id, function (response) { 			
- 		 
+dataService.getDetail(id, function (response) { 			
+ 		 	 		 console.log(response)
+
  		 $scope.index = id;
  		 console.log(id)
  		 $scope.artist = response;

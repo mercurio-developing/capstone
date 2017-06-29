@@ -4,6 +4,7 @@ var  Artist  = require('../models/artists');
 
 
 router.get("/",function (req,res){
+	res.send(reponse.data)
 	Artist.find({},function(err, artists){
 		if(err){
 			err.status = 404,
@@ -14,7 +15,8 @@ router.get("/",function (req,res){
 });
 
 
-router.get("/:id",function (req,res){
+
+router.get("/artist/:id",function (req,res){
 	var id = req.params.id;
 	// Artist.find({ "id": {$gt : prev, $lt : next}},function(err, artist){
 	// 		if(err){

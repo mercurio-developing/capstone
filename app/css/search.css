@@ -233,7 +233,7 @@ a.small {
   width: 50%;
   min-width: 290px;
   max-width:350px;
-  margin: 0 auto;
+  margin-top:50px; 
   margin-bottom: 30px;
   border-radius: 0 0 20px 20px;
   opacity: .95;

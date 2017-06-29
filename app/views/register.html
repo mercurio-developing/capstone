@@ -1,6 +1,6 @@
 <section class="card register">
   <form name="myform"
-    ng-submit="register()"
+    ng-submit="newUser()"
     novalidate>
 
     <div class="textintro">
@@ -8,18 +8,26 @@
       <p>To access site features</p>
       <p class="message" ng-show="message">{{ message }}</p>
     </div>
-
+    <div ng-show="errors" class="grid-100">
+        <p><i>The following errors were found</i></p>
+        <ul class="error validationerror">
+          <li ng-repeat="error in errors">
+              {{error}}
+          </li>
+        </ul>
+      </div>
+    </div>
     <fieldset>
-      <input type="text" name="firstname" placeholder="First Name"
-      ng-model="user.firstname" ng-required="true">
+      <input type="text" name="firstName" placeholder="First Name"
+      ng-model="user.firstName" ng-required="true">
       <p class="error validationerror"
-      ng-show="myform.firstname.$invalid && myform.firstname.$touched">
+      ng-show="myform.firstName.$invalid && myform.firstName.$touched">
       First name required</p>
 
-      <input type="text" name="lastname" placeholder="Last Name"
-      ng-model="user.lastname" ng-required="true">
+      <input type="text" name="lastName" placeholder="Last Name"
+      ng-model="user.lastName" ng-required="true">
       <p class="error validationerror"
-      ng-show="myform.lastname.$invalid && myform.lastname.$touched">
+      ng-show="myform.lastName.$invalid && myform.lastName.$touched">
       Last name required</p>
 
       <input type="email" name="email" placeholder="Email"

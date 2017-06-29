@@ -1,10 +1,15 @@
 <section class="artistpage">
   <div class="search">
+    <h2>Welcome {{username}}</h1>
     <h1>Artist Directory</h1>
     <label>search: </label>
-    <input ng-model="query" placeholder="Search for artists" autofocus>
-
-    <label class="formgroup">by:
+    <div><p ng-model="message"></p></div>
+    
+    <div>
+        <input type="search" ng-model="youtubeSearchText" ng-change="getYoutubeData(youtubeSearchText)" name="hyv-search" id="hyv-search" placeholder="Search..." class="ui-autocomplete-input form-control input-lg" autocomplete="off">
+    <button class="btn" ng-click="search()">Search</button></div>
+    <div>   
+     <label class="formgroup">by:
       <select ng-model="artistOrder">
         <option value="name">Name</option>
         <option value="reknown">Reknown</option>
@@ -18,12 +23,12 @@
     <label class="formgroup">
       <input type="radio" ng-model="direction" name="direction" value="reverse">
       descending
-    </label>
-   
+    </label></div>
   </div>
-  <ul class="artistlist">
+  <div>
+  <!-- <ul class="artistlist">
     <li ng-animate="'animate'" class="artist cf" ng-repeat="artist in artists | filter: query | orderBy: artistOrder:direction">
-      <a ng-href="#!/list/{{artist.id - 1}}">
+      <a ng-href="#!/detail/{{artist.id - 1}}">
       <img ng-src="images/{{artist.shortname}}_tn.jpg" alt="Photo of {{artist.name}}">
       <div class="info">
         <h2>{{artist.name}}</h2>
@@ -31,5 +36,21 @@
       </div>
       </a> 
     </li>
+  </ul>   -->
+    <ul class="artistlist">
+    <li  class="artist cf" ng-repeat="video in videos">
+    <a ng-href="https://www.youtube.com/watch?v={{video.id.videoId}}"></a>
+       <img ng-src="{{video.snippet.thumbnails.default.url}}">
+       <div class="info">
+        <h2>{{video.snippet.title}}</h2>
+        <h3>{{video.snippet.description}}</h3>
+        <youtube-video video-id="'sMKoNBRZM1M'" player="bestPlayer"></youtube-video>
+        <button ng-click="bestPlayer.playVideo()">Play</button>
+        <button ng-click="bestPlayer.stopVideo()">Stop</button>
+       </div>
+      </a> 
+    </li>
   </ul>  
+</div>
+<div>{{message}}</div>
 </section>

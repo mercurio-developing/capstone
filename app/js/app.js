@@ -2,7 +2,7 @@
   'use strict';		
 
 
-angular.module('app',['ngRoute']);
+angular.module('app',['ngStorage','ui.router','ngSanitize']);
 
 
-})();
+})()
