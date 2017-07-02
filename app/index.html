@@ -2,53 +2,51 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>my app</title>
+  <title>Easy Travel</title>
   <meta name="viewport" content="width=device-width, user-scalable=no">
   <link href='https://fonts.googleapis.com/css?family=Lato:400,100,700,900' rel='stylesheet' type='text/css'>
     <link href='/css/style.css' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  
+  </head>
+  
+  <body  ng-app="app" ng-controller="MainCtrl">
+     
+  <header>
+    <nav class="cf" ng-include="'views/nav.html'"></nav>
+  </header>
+   
+    <div class="page">
+       <main class="cf" ui-view>
+       </main>
+    </div>
 
-</head>
-<body  ng-app="app" ng-controller="mainCtrl as mc">
-<header>
-  <nav class="cf" ng-include="'views/nav.html'"></nav>
-</header>
-<div class="page">
-<!-- 
-  <div class="userinfo" ng-show="currentUser" ng-controller="RegistrationCtrl">
-    <span class="userinfo">Hi {{currentUser.firstname}}</span>
-    <a ng-href="#/login" ng-click="logout()">logout</a>
-  </div> -->
-
-  <main class="cf" ui-view>
-  </main>
-</div>
 
   <script src="vendor/angular.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.10/ngStorage.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/angular.youtube-embed/1.7.10/ng-youtube-embed.min.js
-"></script>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular-sanitize.js"></script>
-
   <script src="/js/lib/angular-ui.js"></script>
-  <script src="/js/lib/angular-youtube-embed/dist/angular-youtube-embed.min.js
-"></script>
 
-  <script src="https://www.youtube.com/iframe_api"></script>
+
 
   <script src="js/app.js"></script>
   <script src="js/route-config.js"></script>
 
   <script src="js/services/dataService.js"></script>
+  <script src="js/directive/googlemap.js"></script>
 
   <script src="js/controllers/detailCtrl.js"></script>
+  <script src="js/controllers/newTravel.js"></script>
   <script src="js/controllers/searchCtrl.js"></script>
   <script src="js/controllers/mainCtrl.js"></script>
   <script src="js/controllers/authCtrl.js"></script>
 
+  <script src="js/directive/ngmap/build/scripts/ng-map.js"></script>
 
 
+  <script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
+  <script src="js/lib/angular-google-places-autocomplete/src/autocomplete.js"></script>
+  <link rel="stylesheet" href="js/lib/angular-google-places-autocomplete/src/autocomplete.css">
 
 
 </body>

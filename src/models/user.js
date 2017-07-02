@@ -4,12 +4,13 @@ const mongoose = require('mongoose');
 var bcrypt = require('bcryptjs');
 const jwt = require("jsonwebtoken");
 const secretKey = "ale"
+var deepPopulate = require('mongoose-deep-populate')(mongoose);
 
-
-const Schema = mongoose.Schema;
-
+const Schema = mongoose.Schema,
+      ObjectId =  Schema.Types.ObjectId;
+      
 const UserSchema =  new Schema ({
-    
+
     firstName : {
         type : String,
         required : true
@@ -23,13 +24,12 @@ const UserSchema =  new Schema ({
         required: true,
         unique:true,
         match: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-
     },
     password:{
         type:String,
         required:true
     }
-});
+})
 
 // authenticate input against database documents
 UserSchema.statics.authenticate = function (email, password, callback) {

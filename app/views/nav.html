@@ -2,12 +2,13 @@
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand" href="#">My Proyect</a>
+  <a class="navbar-brand" href="#"><img class="car" src="images/car.svg" alt=""> Easy Travel </a>    
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a ng-show="!isLoggedIn()" ng-href="#!/login">Login</a>
+    <a ng-show="!isLoggedIn()" ng-href="#!/login">Login</a>
 	  <a ng-show="!isLoggedIn()" ng-href="#!/register">Register</a>
-	  <a ng-show="isLoggedIn()" ng-href="#!/login" ng-click="logout()">Logout</a>
+    <a ng-show="isLoggedIn()" ng-href="#!/new_travel">NEW TRAVEL</a>
+    <a ng-show="isLoggedIn()" ng-href="#!/login" ng-click="logout()">Logout</a>
     </div>
   </div>
 </nav>

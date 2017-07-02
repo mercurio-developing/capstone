@@ -8,15 +8,16 @@ const jwtExpress = require("express-jwt");
 const secretKey = "ale"
 var cors = require('cors')
 
-
-var list = require('./routes/list');
-var user = require('./routes/user');
-var login = require('./routes/login');
-var google  = require('./routes/google.search')
-
-
-var Artists  = require('./models/artists')
+var Travel   = require('./models/travel');
 var User 	 = require("./models/user");
+var Review 	 = require("./models/review");
+
+var travelRoutes   = require('./routes/travel');
+var userRoutes 	   = require('./routes/user');
+var loginRoutes    = require('./routes/login');
+var googleRoutes   = require('./routes/api/google.search');
+var weatherRoutes  = require('./routes/api/weather');
+
 
 var app = express();
 
@@ -47,11 +48,12 @@ app.get('/vendor/ng-videosharing-embed.js', function(req, res) {
 //   res.sendFile(path.join(__dirname, '../node_modules', 'angular-route', 'angular-route.js'));
 // });
 
+app.use('/login', loginRoutes);
+app.use('/register', userRoutes);
+app.use('/api/travel', travelRoutes);
+app.use('/api/google', googleRoutes);
+app.use('/api/weather', weatherRoutes);
 
-app.use('/api/artists', list);
-app.use('/register', user);
-app.use('/login', login);
-app.use('/api/google', google);
 
 
 

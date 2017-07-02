@@ -2,7 +2,8 @@
   'use strict';		
 
 
-angular.module('app',['ngStorage','ui.router','ngSanitize']);
+		
+angular.module('app',['ngStorage','ui.router','ngMap','google.places']);
 
 
 })()

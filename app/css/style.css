@@ -157,149 +157,15 @@ hgroup h2.lead { font: normal normal 1.125em "Roboto",Arial,Verdana,sans-serif; 
 .search-result p { font: normal normal 1.125em "Roboto",Arial,Verdana,sans-serif; } 
 .search-result span.border { display: block; width: 97%; margin: 0 15px; border-bottom: 1px dotted #ccc; }
 
-/* user List Styles */
 
-.userlist {
-  width: 100%;
-  margin: 0 auto;
-  opacity: .95;
-  z-index: 10;
-  margin-top: 20px;
-}
-
-.userlist ul {
-  margin: 0;
-  padding: 0;
-}
-
-.userlist li {
-  width: 50%;
-  float: left;
-  padding: 12px;
-  margin-bottom: 10px;
-  -webkit-transition: all 0.3s ease-out;
-  -moz-transition: all 0.3s ease-out;
-  -o-transition: all 0.3s ease-out;
-  transition: all 0.3s ease-out;
-  border: 1px solid transparent;
-}
-
-.userlist li:hover {
-  border: 1px solid #C5C5C5;
-  border-radius: 4px;
-}
-
-.userlist li.expanded {
-  width: 100%;
-}
-
-.userlist li.expanded form {
-  width: 100%;
-  padding: 10px 0;
-}
-
-.userlist li.expanded form input {
-  width: 80%;
-}
-
-
-.userlist li.expanded .btn-love {
-  background-color: #C61C6F;
-}
-
-.userlist .buttons {
-  display: block;
-  float: left;
-  text-align: left;
-  margin-right: 5px;
-}
-
-.userlist .info {
-  display: block;
-  float: left;
-  text-align: left;
-}
-
-@media all and (max-width: 600px) {
-  .userlist li {
-    width: 100%;
-  }
-
-  .userlist  .info  {
-    width: 70%;
-  }
-}
-
-ul.awardslist {
-  margin-top:5px;
-}
-
-ul.awardslist li {
-  width: auto;
-  padding: 5px 5px 0 10px;
-  margin: 2px;
-  background-color: #797979;
-  color: white;
-  font-weight: normal;
-  border-radius: 4px;
-  font-family: Lato, 'Helvetica Nueue', Helvetica, Arial, sans-serif;
-}
-
-ul.awardslist li:hover {
-  background-color: #F5974E;
-}
-
-ul.awardslist li .btn-delete {
-  background-color: transparent;
-  background-size: 15px 15px;
-  background-position: center 40%;
-  margin:0;
-  border: none;
-}
-
-ul.awardslist li .award {
-  padding-right: 15px;
-}
-
-nav {
-  width: 100%;
-  background: #fff;
-  box-shadow: 0 1px 1px rgba(0,0,0,.1);
-}
-
-
-nav ul {
-  width: 60%;
-  float: right;
-}
-
-nav ul li {
-  float: right;
-  color: #145266;
-  font-family: Lato, 'Helvetica Nueue', Helvetica, Arial, sans-serif;
-  margin: 10px 0;
-  font-size: 1.1em;
-}
-
-nav ul li.user {
-  background-color: #D24244;
-  color: #EFC94C;
-  font-family: Lato, 'Helvetica Nueue', Helvetica, Arial, sans-serif;
-}
-
-nav ul li.user.hello {
-  margin-left: 60px;
-  padding: 10px 15px;
-}
-
-nav ul li a {
+nav a {
   float: left;
   text-decoration: none;
-  padding: 10px 15px;
+  padding: 10px 5px;
   border-radius: 4px;
 }
 
-nav li a:hover {
+nav a:hover {
   color: #E76C5A;
 }
 
@@ -422,5 +288,48 @@ input.ng-valid.ng-touched {
   padding-bottom: 10px;
 }
 
+#google-map {
+  margin-bottom: 50px;
+}
 
+/*CARD*/
 
+.car {
+  width:50px;
+  height: 50px;
+}
+
+.time {
+padding-top: 10px
+
+}
+
+.time img{
+  width:25px;
+  height: 25px;
+}
+
+.chair {
+  padding-left: 40px;
+  margin-top: 10px;
+
+}
+
+.chair img {
+  width:25px;
+  height:25px;
+}
+
+.day {
+  padding-left: 40px
+
+}
+.day img {
+  width:25px;
+  height:25px;
+}
+
+.descr {
+  margin-top: 20px;
+  margin-bottom: 10px: 
+}

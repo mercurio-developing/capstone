@@ -24,15 +24,24 @@ function config($stateProvider, $urlRouterProvider) {
           }).
           state('search', {
           url:'/search',
-          templateUrl: 'views/search.html',
-          controller: 'SearchCtrl',
+          templateUrl: 'views/searchCtrl.html',
+          controller: 'SearchCtrl'
         }).
           state('success', {
           url:'/success',
           templateUrl: 'views/success.html',
-          controller: 'mainCtrl',
-
+          controller: 'MainCtrl'
+        }).
+          state('newTravel', {
+          url:'/new_travel',
+          templateUrl: 'views/newTravel.html',
+          controller: 'NewTravelCtrl'
         })
+        //   state('userDetail', {
+        //   url:'/userDetail',
+        //   templateUrl: 'views/userDetail.html',
+        //   controller: 'DetailCtrl'
+        // })  
        }   
 
 function run ($timeout,$http,$rootScope,$localStorage,$location,$transitions) { 

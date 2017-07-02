@@ -5,14 +5,15 @@
         .module('app')
         .controller('SearchCtrl', SearchCtrl);  
 
-function SearchCtrl($scope, dataService,$localStorage,$http) {
+function SearchCtrl($scope,dataService,$localStorage,$http,$state) {
+
+    $scope.username = $localStorage.user
     
-    $scope.searching = function (search) {    
-        var search = $scope.search                     
-        dataService.getResults(search,function (response) {
-        $scope.videos = response.data.items;
-         });    
+    $scope.searchTravel = function () {    
+        dataService.getTravels(function (response) {
+        console.log(response)
+        $scope.travels = response.data
+        }); 
       }
     }
-
 })();

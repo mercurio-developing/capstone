@@ -8,7 +8,9 @@
 
 function AuthCtrl($timeout,$scope,dataService,$location, $localStorage,
     $sessionStorage) {
-  $scope.newUser = function (user) {    
+ 
+  $scope.newUser = function (user) {  
+      console.log(user)  
      var user = $scope.user                      
      dataService.postUser(user, function (response) {
        $location.path("/success");      

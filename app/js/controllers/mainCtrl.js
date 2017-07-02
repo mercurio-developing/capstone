@@ -3,17 +3,22 @@
 					
 	angular
 		.module('app')
-		.controller('mainCtrl', mainCtrl);	
+		.controller('MainCtrl', MainCtrl);	
 
-function mainCtrl($state,$scope,$timeout,$location,$localStorage) {     
+function MainCtrl($state,$scope,$timeout,$location,$localStorage) {     
 
-   $scope.logout = function($scope, viewUser) {
-        $localStorage.$reset()
-        $location.path("/login")
-      };	
-  $scope.isLoggedIn = function() {
-  return ($localStorage.token) ? true : false;
-  };
-}
+    $scope.logout = function($scope, viewUser) {
+          $localStorage.$reset()
+          $location.path("/login")
+        };	
+    $scope.username = $localStorage.user
+    $scope.isLoggedIn = function() {
+    return ($localStorage.token) ? true : false;
+    };
 
+    $scope.changeLocation = function(path){
+      $location.path('/' + path)
+      }
+    }
+  
 })();
