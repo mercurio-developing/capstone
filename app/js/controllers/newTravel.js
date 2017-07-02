@@ -6,17 +6,7 @@
         .controller('NewTravelCtrl', NewTravelCtrl);  
 
 function NewTravelCtrl(NgMap,$scope, dataService,$localStorage,$http,$state) {
-    
-    // $scope.searching = function (search) {    
-    //     var search = $scope.search                     
-    //     dataService.getResults(search,function (response) {
-    //     $scope.videos = response.data.items;
-    //     $scope.LocationURL=$sce.trustAsResourceUrl
-    //    // ("https://www.google.com/maps/embed/v1/directions?key=AIzaSyAwnmKaPwRDQlkaZm2rEgyHkIXp6mZObgs&origin=Barcelona+Spain&destination=Telemark+Norway&avoid=tolls|highways")
 
-    //      }); 
-
-    //   }
     $scope.place = null;
     $scope.autocompleteOptions = {
                         componentRestrictions: { country: 'us' },
@@ -24,8 +14,13 @@ function NewTravelCtrl(NgMap,$scope, dataService,$localStorage,$http,$state) {
 
       $scope.searchLocation = function (location) {    
         var location = $scope.location   
+        
         dataService.getLocation(location,function (response) {
-            console.log(response.data.query)
+
+        
+        $scope.latitud = response.data.json.routes[0].legs[0].end_location.lat
+        $scope.longitud = response.data.json.routes[0].legs[0].end_location.lng
+        console.log($scope.longitud)
         $scope.origin = response.data.query.origin
         $scope.destination = response.data.query.destination
         var origin = $scope.origin
@@ -35,23 +30,33 @@ function NewTravelCtrl(NgMap,$scope, dataService,$localStorage,$http,$state) {
 
         }); 
     };  
-      // }
- 
 
+    $scope.searchWeather = function(weather){
+        var weather = new Array({
+            longitud : $scope.longitud,
+            latitud: $scope.latitud
+        })
+        dataService.getWeather(weather, function(response){
+            $scope.temperatures = response.data.daily.data
+            console.log($scope.temperatures)
+        })
+    }
 
-        //   NgMap.getMap().then(function(map) {
-
-        //   $scope.googleMapsUrl = 'https://maps.google.com/maps/api/js?key=AIzaSyAwnmKaPwRDQlkaZm2rEgyHkIXp6mZObgs';
-        //   console.log(map.getCenter());
-        //   console.log('markers', map.markers);
-        //   console.log('shapes', map.shapes);
-        // });  
-      
-        //   $scope.onClick= function(event) {
-        //   $scope.geoType =  event.feature.getGeometry().getType();
-        //   $scope.geoArray = event.feature.getGeometry().getArray();
-        //   console.dir('geoArray', event.feature.getGeometry().getArray());
-        //  };
+    // $scope.createTravel = function(info){
+    //     var info = $scope.info
+    //     dataService.newTravel(info, function(response){
+    //         $scope.info = response.data
+    //         console.log($scope.info)
+    //     })
+    // }
+// function errorHandler(reason) { //error handler function create one scope array for errors
+//             $scope.errors = [];
+//             for (let err in reason.data.errors) { //when one errorhandler is success this push the reason error inside of the array
+//                 $scope.errors.push(reason.data.errors[err][0].userMessage);//for give the data necessary to the user
+//                 console.log($scope.errors)
+//             }
+//           }
+        
     }
 
 })();

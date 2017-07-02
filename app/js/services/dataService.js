@@ -14,6 +14,9 @@ function dataService ($http,$localStorage,$rootScope){
 		// }    
 			this.getLocation = function(location,callback){
 		    $http.post('/api/google/maps',location).then(callback)
+		}   
+			this.getWeather = function(weather,callback){
+		    $http.post('/api/weather/',weather).then(callback)
 		}   	
 			this.getResults = function(searching,callback){
 		    $http.post('/api/google/search',searching).then(callback)

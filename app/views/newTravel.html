@@ -99,36 +99,35 @@
                                 <!-- Button -->
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <button style="margin-top: 10px"id="singlebutton" name="singlebutton" class="btn btn-default">Let's Go!</button>
+                                        <button style="margin-top: 30px" type="submit" class="btn">Let's Go!</button>
                                     </div>
                                 </div>
                             </div>
                         </form>
                         <!-- form end -->
+                        
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="well-block">
                         <div class="well-title">
-                            <h2>Why Appointment with Us</h2>
-                        </div>
+                            <h2>WEATHER</h2>
+                                <form name="myform"
+                                    ng-submit="searchWeather()">
+                                    <fieldset>
+                                    <input ng-show="weather"type="text" name="longitud" ng-model="weather">
+                                     <button style="margin-top: 30px margin-bottom: 50px" type="submit" class="btn">Weather Details!</button>
+                                    </fieldset>
+                                   
+                                    </form>
                         <div class="feature-block">
-                            <div class="feature feature-blurb-text">
-                                <h4 class="feature-title">24/7 Hours Available</h4>
+                            <div class="feature feature-blurb-text" ng-repeat="temperature in temperatures">
+                                <h4 style="margin-top: 30px" class="feature-title"> DAY {{$index + 1}}</h4>
                                 <div class="feature-content">
-                                    <p>Integer nec nisi sed mi hendrerit mattis. Vestibulum mi nunc, ultricies quis vehicula et, iaculis in magnestibulum.</p>
-                                </div>
-                            </div>
-                            <div class="feature feature-blurb-text">
-                                <h4 class="feature-title">Experienced Staff Available</h4>
-                                <div class="feature-content">
-                                    <p>Aliquam sit amet mi eu libero fermentum bibendum pulvinar a turpis. Vestibulum quis feugiat risus. </p>
-                                </div>
-                            </div>
-                            <div class="feature feature-blurb-text">
-                                <h4 class="feature-title">Low Price & Fees</h4>
-                                <div class="feature-content">
-                                    <p>Praesent eu sollicitudin nunc. Cras malesuada vel nisi consequat pretium. Integer auctor elementum nulla suscipit in.</p>
+                                  <img class="weather-icon" src="../images/weather/{{temperature.icon}}.png" alt="">
+                                  <p>MAX:{{temperature.temperatureMax}}</p>
+                                  <p>MIN:{{temperature.temperatureMin}}</p>
+                                  <p>Summary:{{temperature.summary}}</p>
                                 </div>
                             </div>
                         </div>

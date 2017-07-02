@@ -8,12 +8,16 @@ const resultSearch = new Array();
 const createClient = new Object();
 var origin;
 var destination;
-router.post("/maps",function(req,res){
+
+
 
 var googleMapsClient = require('@google/maps').createClient({
   key: 'AIzaSyBDxB0YAtqEVlm5aI-FsYi5tHiXK-oqv4A'
 });
 
+
+
+router.post("/maps",function(req,res){
 
 
 if (Array.isArray([req.body.origin]) === true &&
@@ -29,15 +33,15 @@ if (Array.isArray([req.body.origin]) === true &&
 	destination = req.body.destination
 }
 
-googleMapsClient.directions({
+const location = googleMapsClient.directions({
 	origin: origin,
 	destination: destination
-}, function(err, response) {
+}, function(err, data) {
   if (!err) {
-    res.send(response);
+  	res.send(data)
+    // resultSearch.push(response.data.json.routes[0].legs[0].end_location.lng)
   }
   });
-
 
 });
 module.exports = router
