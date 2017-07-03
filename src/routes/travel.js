@@ -16,6 +16,10 @@ router.get("/",function (req,res){
 	})
 });
 
+router.post("/newtravel",function (req,res){
+      console.log(req.body)
+      res.send(req.body)
+  });
 
 router.route("/:travelId")
       .get(function(req, res, next){

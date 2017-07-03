@@ -26,16 +26,18 @@ TravelSchema = new Schema ({
         required: true
     },
     estimatedTime: String,
-    passagers:Number,
+    passegers:Number,
     contribution:Number,
     departure:{
         type: Date,
         default: Date.now
     },
-    reviews : [{
-        type: ObjectId,
-        ref:'Review'
-        }],
+    weather : [{
+        Tmax: String,
+        Tmin: String,
+        summary: String,
+        icon: String,
+    }]
 	}).plugin(deepPopulate, {
   whitelist: [
     'user',

@@ -31,10 +31,13 @@
     "gulp-util": "^2.2.20",
     "gulp-webserver": "^0.8.1",
     "jsonwebtoken": "^7.4.1",
-    "mongoose": "4.4.5"
+    "mongoose": "4.4.5",
+    "mongoose-deep-populate": "^3.0.0",
+    "ng-datepicker": "^1.0.2"
   },
   "devDependencies": {
     "@google/maps": "^0.4.1",
+    "angularjs-datepicker": "^2.1.23",
     "cors": "^2.8.3",
     "jsonwebtoken": "^7.4.1",
     "mongoose-seeder": "^1.2.1",

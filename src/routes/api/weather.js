@@ -14,7 +14,10 @@ var options = {
 darksky = new DarkSky(options);
 
 router.post('/',function(req,res){
-  darksky.get(req.body[0].latitud,req.body[0].longitud,function (err,data) {
+  let latitud = req.body[0].latitud;
+  let longitud = req.body[0].longitud;
+
+  darksky.get(latitud,longitud,function (err,data) {
   if (err) throw err;
   res.send(data.body);
 });

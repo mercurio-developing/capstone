@@ -24,6 +24,9 @@ function dataService ($http,$localStorage,$rootScope){
 			this.getTravels = function(callback){
 			$http.get("/api/travel").then(callback)   
 		}
+			this.newTravel = function(info,callback,errorCallback){
+			$http.post("/api/travel/newtravel", info).then(callback,errorCallback)   
+		}
 			this.getDetail = function(id,callback){
 			$http.get(`/api/user/${id}`,id).then(callback)   
 		}
