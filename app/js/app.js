@@ -3,7 +3,7 @@
 
 
 		
-angular.module('app',['ngStorage','ui.router','ngMap','google.places','jkuri.datepicker']);
+angular.module('app',['ngStorage','ui.router','ngMap','google.places']);
 
 
 })()

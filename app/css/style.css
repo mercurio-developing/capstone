@@ -18,7 +18,9 @@
   main {
     width: 100%;
   }
+
 }
+
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Lato', serif;
@@ -63,6 +65,7 @@ h4{
 }
 
 p {
+  margin-bottom: 2px;
 }
 
 /* Form Styles */
@@ -345,3 +348,9 @@ padding-top: 10px
 
 
 }
+
+.placeForm input{
+  margin-bottom:10px; 
+  height:5px;
+}
+
