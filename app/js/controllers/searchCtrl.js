@@ -11,9 +11,11 @@ function SearchCtrl($scope,dataService,$localStorage,$http,$state) {
     
     $scope.searchTravel = function () {    
         dataService.getTravels(function (response) {
-        console.log(response)
+        console.log(response.data)
         $scope.travels = response.data
         }); 
       }
+ 
     }
+
 })();

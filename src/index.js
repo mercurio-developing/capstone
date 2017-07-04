@@ -17,6 +17,7 @@ var userRoutes 	   = require('./routes/user');
 var loginRoutes    = require('./routes/login');
 var googleRoutes   = require('./routes/api/google.search');
 var weatherRoutes  = require('./routes/api/weather');
+var yelpRoutes     = require('./routes/api/yelp');
 
 
 var app = express();
@@ -48,12 +49,12 @@ app.get('/vendor/ng-videosharing-embed.js', function(req, res) {
 //   res.sendFile(path.join(__dirname, '../node_modules', 'angular-route', 'angular-route.js'));
 // });
 
-app.use('/login', loginRoutes);
-app.use('/register', userRoutes);
-app.use('/api/travel', travelRoutes);
-app.use('/api/google', googleRoutes);
+app.use('/login'      , loginRoutes);
+app.use('/register'   , userRoutes);
+app.use('/api/travel' , travelRoutes);
+app.use('/api/google' , googleRoutes);
 app.use('/api/weather', weatherRoutes);
-
+app.use('/api/yelp'   , yelpRoutes);
 
 
 

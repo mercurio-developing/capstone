@@ -6,36 +6,43 @@
 		.controller('DetailCtrl', DetailCtrl);	
 
 function DetailCtrl($scope,dataService,$location) {
+	$scope.show = false;
+    $scope.showHotels = false;
 
-const id = Number($location.url().split('/')[2]);
+    var id = $location.url().split('/')[2];
+        dataService.getTravelId(id,function (response) {
+        $scope.travel = response.data
+        $scope.longitud = response.data.longitud
+        $scope.latitud = response.data.latitud
+        console.log(response.data)
+        }); 
+     
+    
+    $scope.searchWeather = function(data,weather){
+ 	var weather = new Array({
+            longitud : $scope.longitud,
+            latitud: $scope.latitud
+    })
+    $scope.show = true;
+ 	dataService.getWeather(weather, function(response){
+            $scope.temperatures = response.data.daily.data
+            $scope.today = response.data.daily.data[0]
+        })
+ 	}
 
-dataService.getDetail(id, function (response) { 			
- 		 	 		 console.log(response)
+    $scope.searchHotel = function(data,location){
+    var location = new Array({
+            longitud : $scope.longitud,
+            latitud: $scope.latitud
+    })
+    $scope.showHotels = true;
+    dataService.getHotels(location, function(response){
+        console.log(response)
+        $scope.businesses = response.data.businesses
+        
 
- 		 $scope.index = id;
- 		 console.log(id)
- 		 $scope.artist = response;
- 		 console.log()
+        })
+    }
 
- 		 $scope.nexts = function(){
- 		 	var limit = response.data.length - 1
- 		 	if($scope.index === limit){
- 		 		$scope.next = limit;
-	 		 } else{
-	 		  	$scope.next = $scope.index + 1;
-	 		 }
-	 		}
-
-	 	$scope.prevs = function(){
- 		 	var limit = Number(response.data[0].id) - 1
- 		 	console.log(limit)
- 		 	if($scope.index === limit){
- 		 		$scope.prev = limit;
-	 		 } else{
-	 		  	$scope.prev = $scope.index - 1;
-	 		 }
-	 		}	  
- 	})
-};
-
+ };
 })();

@@ -11,7 +11,10 @@ function MainCtrl($state,$scope,$timeout,$location,$localStorage) {
           $localStorage.$reset()
           $location.path("/login")
         };	
+    
     $scope.username = $localStorage.user
+    $scope.email = $localStorage.email
+
     $scope.isLoggedIn = function() {
     return ($localStorage.token) ? true : false;
     };

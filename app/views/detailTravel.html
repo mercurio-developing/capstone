@@ -1,0 +1,153 @@
+<section class="newtravel">
+    
+    <div class="container">
+
+  <div class="col-11" style="margin:30px 25px 10px 25px">
+      <!-- MAP -->   
+    
+    <div><label style="padding-right: 38px"><h1>Origen:{{travel.origin}}</h1></label></div>
+        
+
+    <div><label style="padding-right: 38px"><h1>Destination:{{travel.destination}}</h1>
+    </label>   </div>  
+
+        <div map-lazy-load="https://maps.google.com/maps/api/js">
+          <ng-map zoom="14" center="37.7699298, -122.4469157">
+            <directions
+              origin = "{{travel.origin}}"
+              destination="{{travel.destination}}"
+              draggable="true"
+              travel-mode="DRIVING"
+             >
+            </directions>
+          </ng-map> 
+        </div>
+  </div>
+    
+    <!--TRAVEL DETAILS-->
+
+    <div class="col-12" ng-class="class" style="margin-left: 25px">  
+        <div class="container">
+                <h1>Duration:{{travel.estimatedTime}}</h1>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h2> 
+                                        <label class="control-label" for="name">Driver's Name:
+                                        <h1>{{travel.user.firstName}} {{travel.user.lastName}}</h1>
+                                        </label> 
+                                    <h2>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                       <h2> 
+                                        <label class="control-label" for="name">Driver's Email:
+                                        <h1>{{travel.user.email}}</h1> 
+                                        </label> 
+                                        <h2>
+                                    </div>
+                                </div>
+                                <!-- Text input-->
+                                <div class="col-md-6">
+                                    <div  class="form-group">
+                                        <h2> 
+                                        <label class="control-label" for="date">What day do you want to leave? :
+                                        <h2>{{travel.departureDate}}</h2>
+                                        
+                                        </label> 
+                                        <h2>
+                                    </div>
+                                </div>
+                                <!-- Select Basic -->
+                                <div class="col-md-6">
+                                    <div  class="form-group">                          <h2> 
+                                        <label class="control-label" for="time">What time would you like to leave?
+                                        <h2>{{travel.departureTime}}</h2></label>
+                                        <h2>
+                                    </div>
+                                </div>
+                                <!-- Select Basic -->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label" for="appointmentfor">How many seats are?</label>
+                                        <h2>{{travel.passengers}}</h2>
+                                        <label class="control-label" for="appointmentfor">How many seats are available?<h2>{{travel.passengerAvailable}}</h2></label>
+                                    </div>
+                                    <label>About of the travel:<h2>{{travel.description}}</h2></label>
+                                </div>
+                                 <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label" for="appointmentfor">How many seats are?</label>
+                                        <h2>{{travel.passengers}}</h2>
+                                        <label class="control-label" for="appointmentfor">How many seats are available?<h2>{{travel.passengerAvailable}}</h2></label>
+                                    </div>
+                                    <label>About of the travel:<h2>{{travel.description}}</h2></label>
+                                </div>
+                            </div>
+                        </div>
+    
+     <!--TRAVEL WEATHER-->
+         
+                    <div class="row">
+                          <div class="col-sm-9">
+                            
+                            <div>
+                                <h2 style="margin-left: 20px;">WEATHER</h2>
+                                <h4> For next few days!</h2>
+                                <button ng-click="searchWeather()" class="btn" >SHOW DETAILS! </button>
+                            </div>
+                              
+
+                            <div  ng-show="show">
+                                <h2 style="margin-top: 20px class="feature-title"> TODAY! </h4>
+                                <div class="feature-content">
+                                   <img class="weather-today" src="../images/weather/{{today.icon}}.png" alt="">
+                                <p>MAX:{{today.temperatureMax}} °F</p>
+                                <p>MIN:{{today.temperatureMin}} °F</p>
+                                <p>Summary:{{today.summary}}</p>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-2" ng-repeat="temperature in temperatures" ng-if="$index > 1">
+                                <div>
+                                    <h4 style="font-size:14px margin-top: 50px"> <br><span s>Date : {{temperature.time * 1000 | date:'MM-dd-yyyy'}}</span><br></h4>
+                                    <div class="feature-content">
+                                      <img class="weather-icon" src="../images/weather/{{temperature.icon}}.png" alt="">
+                                      <p>Max:{{temperature.temperatureMax}}°F</p>
+                                      <p>Min:{{today.temperatureMin}}°F</p>
+                                    </div>   
+                                </div>      
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+   <!--YELP HOTELS-->
+         
+                    <div class="row">
+                          <div class="col-sm-9">
+                            
+                            <div>
+                                <h2 style="margin-left: 20px;">HOTELES</h2>
+                                <h4> HOTELES in DESTINATION!</h2>
+                                <button ng-click="searchHotel()" class="btn" >SHOW DETAILS! </button>
+                            </div>
+                              
+                            <div class="row">
+                                <div class="col-2" ng-repeat="business in businesses">
+                                <div>
+                                    <div class="feature-content">
+                                      <img class="weather-icon" src="{{business.image_url}}" alt="">
+                                      <h2>{{business.name}}</h2>
+                                      <p>{{business.rating}}</p>
+                                      <a href="{{business.url}}"></a>
+                                    </div>   
+                                </div>      
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        
+    </div>
+</section>

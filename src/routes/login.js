@@ -28,7 +28,8 @@ router.post("/",function(req, res,next) {
 			        return res.status(200).json({
 			        	token:token,
 			        	firstName : user.firstName,
-			        	lastName : user.lastName
+			        	lastName : user.lastName,
+			        	email : user.email
 			        })
 			        });
 					} else {

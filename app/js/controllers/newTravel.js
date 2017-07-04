@@ -5,7 +5,7 @@
         .module('app')
         .controller('NewTravelCtrl', NewTravelCtrl);  
 
-function NewTravelCtrl(NgMap,$scope, $filter,dataService,$localStorage,$http,$state) {
+function NewTravelCtrl(NgMap,$scope, $filter,dataService,$localStorage,$http,$state,$location) {
         
         $scope.show = false
         $scope.textButton = "More details.."
@@ -33,11 +33,13 @@ function NewTravelCtrl(NgMap,$scope, $filter,dataService,$localStorage,$http,$st
                             componentRestrictions: { country: 'us' },
                         }
 
+      
       $scope.searchLocation = function (location) {    
         $scope.searchWeather();
         var location = $scope.location   
         
         dataService.getLocation(location,function (response) {
+            console.log(response)
         $scope.latitud = response.data.json.routes[0].legs[0].end_location.lat
         $scope.longitud = response.data.json.routes[0].legs[0].end_location.lng
         $scope.duration = response.data.json.routes[0].legs[0].duration.text
@@ -67,20 +69,20 @@ function NewTravelCtrl(NgMap,$scope, $filter,dataService,$localStorage,$http,$st
 
     $scope.createTravel = function(info){
         var info = new Array({
-            email:$scope.data.email,
+            email:$localStorage.email,
             origin : $scope.titleOrig,
             destination: $scope.titleDest,
-            estimatedTim: $scope.duration,
-            passeggers: $scope.data.passengers,
+            estimatedTime: $scope.duration,
+            passengers: $scope.data.passengers,
             description : $scope.data.description,
-            departure: [{
-                date:$scope.data.date,
-                time:($scope.data.time)
-                }]           
+            departureDate:$scope.data.date,
+            departureTime:$scope.data.time,
+            latitud:$scope.latitud,
+            longitud:$scope.longitud       
              })
         
             dataService.newTravel(info, function(response){
-                console.log(response)
+                $location.path("/search");      
         })
     }
 

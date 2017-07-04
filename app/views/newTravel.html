@@ -13,11 +13,11 @@
         <div> 
         <label style="padding-right: 38px">Origin:</label>
         
-        <input  name="origin" type="text" g-places-autocomplete options="autocompleteOptions" force-selection="true" ng-model="location.origin"/></div>
+        <input  name="origin" type="text" g-places-autocomplete options="autocompleteOptions" force-selection="true" ng-model="location.origin" ng-required="true" /></div>
        <div>
        <label>Destination:</label>
         
-        <input  name="destination" type="text" g-places-autocomplete options="autocompleteOptions"  force-selection="true" ng-model="location.destination" /></div> 
+        <input  name="destination" type="text" g-places-autocomplete options="autocompleteOptions"  force-selection="true" ng-model="location.destination" ng-required="true" /></div> 
         
         <button ng-click="buttonsEnabled = true" type="submit" class="btn" style="margin:20px 0px 20px 0px">Search</button>
 
@@ -58,35 +58,35 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="control-label" for="name">Driver's Name</label> 
-                                        <input   id="name" name="username" type="text" placeholder="Name" value="{{username}}" class="form-control input-md">
+                                        <input   id="name" name="username" type="text" placeholder="Name" value="{{username}}" ng-disabled="true" class="form-control" input-md">
                                     </div>
                                 </div>
                                 <!-- Text input-->
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="control-label" for="email" >Driver's Email</label>
-                                        <input id="email" name="email" type="email" ng-model="data.email" placeholder="E-Mail" class="form-control input-md">
+                                        <input id="email" name="email" type="email" value={{email}}  ng-disabled="true" placeholder="E-Mail" class="form-control input-md">
                                     </div>
                                 </div>
                                 <!-- Text input-->
                                 <div class="col-md-6">
                                     <div  class="form-group">
                                         <label class="control-label" for="date">What day do you want to leave?</label>
-                                        <input  style="margin-height:50px; height:50px" ng-model="data.date" type="date" id="date" name="date" type="text" placeholder="Preferred Date" class="form-control input-md">
+                                        <input  style="margin-height:50px; height:50px" ng-model="data.date" type="date" id="date" name="date" type="text" placeholder="Preferred Date" class="form-control input-md" ng-required="true">
                                     </div>
                                 </div>
                                 <!-- Select Basic -->
                                 <div class="col-md-6">
                                     <div  class="form-group">
                                         <label class="control-label" for="time">What time would you like to leave?</label>
-                                        <input  type="time" ng-model="data.time" name="time">
+                                        <input  type="time" ng-model="data.time" name="time" ng-required="true">
                                     </div>
                                 </div>
                                 <!-- Select Basic -->
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="control-label" for="appointmentfor">How many seats are available?</label>
-                                        <select style="width: 100px" ng-model="data.passengers" id="appointmentfor" name="appointmentfor" class="form-control">
+                                        <select style="width: 100px" ng-model="data.passengers" id="appointmentfor" name="appointmentfor" class="form-control" ng-required="true">
                                             <option ng-model="data.passengers" >1</option>
                                             <option ng-model="data.passengers" >2</option>
                                             <option ng-model="data.passengers">3</option>
@@ -95,7 +95,7 @@
                                     </div>
                                     <label>What's your travel plan?</label>
                                     <div>
-                                        <input  style="padding:0px 0px 150px 10px; width: 400px" ng-model="data.description" placeholder="Enter description here.." name="comment" form="myform"></div>
+                                        <input  style="padding:0px 0px 150px 10px; width: 400px" ng-model="data.description" placeholder="Enter description here.." name="comment" form="myform" ng-required="true"></div>
                                 </div>
                                 
                                 </fieldset>

@@ -17,6 +17,9 @@ function dataService ($http,$localStorage,$rootScope){
 		}   
 			this.getWeather = function(weather,callback){
 		    $http.post('/api/weather/',weather).then(callback)
+		}   
+			this.getHotels = function(location,callback){
+		    $http.post('/api/yelp/',location).then(callback)
 		}   	
 			this.getResults = function(searching,callback){
 		    $http.post('/api/google/search',searching).then(callback)
@@ -24,11 +27,11 @@ function dataService ($http,$localStorage,$rootScope){
 			this.getTravels = function(callback){
 			$http.get("/api/travel").then(callback)   
 		}
+			this.getTravelId = function(id,callback){
+			$http.get(`/api/travel/${id}`).then(callback)   
+		}
 			this.newTravel = function(info,callback,errorCallback){
 			$http.post("/api/travel/newtravel", info).then(callback,errorCallback)   
-		}
-			this.getDetail = function(id,callback){
-			$http.get(`/api/user/${id}`,id).then(callback)   
 		}
 		 	this.getUserId = function(id,callback){
 		    $http.post(`/api/user/{id}`)

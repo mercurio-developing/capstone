@@ -17,9 +17,9 @@ function config($stateProvider, $urlRouterProvider) {
             templateUrl: 'views/register.html',
             controller: 'AuthCtrl'
           }).
-          state('detail', {
-            url: '/detail/:id',
-            templateUrl: 'views/details.html',
+          state('detailTravel', {
+            url: '/search/:id',
+            templateUrl: 'views/detailTravel.html',
             controller: 'DetailCtrl'
           }).
           state('search', {

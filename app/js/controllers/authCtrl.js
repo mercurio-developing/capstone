@@ -9,6 +9,8 @@
 function AuthCtrl($timeout,$scope,dataService,$location, $localStorage,
     $sessionStorage) {
  
+  var userData = new Array();
+
   $scope.newUser = function (user) {  
       console.log(user)  
      var user = $scope.user                      
@@ -21,6 +23,8 @@ function AuthCtrl($timeout,$scope,dataService,$location, $localStorage,
         user = $scope.user
         dataService.loginUser(user, function (response) {
         $localStorage.token = response.data.token 
+        $localStorage.email = response.data.email
+        console.log(response.data.email)
         $scope.token = $localStorage.token
         $localStorage.isToken  = true;
         console.log($scope.token)

@@ -58,48 +58,20 @@
   "travels": {
     "_model": "Travel",
     "one": {
-      "_id": "57029ed4795118be119cc43d",
-      "user": "->users.juangil",
-      "origin":"Colorado Springs,CO",
-      "destination": "Boulder,CO",
-      "description":"if someone wanna go to boulder!, come on lets do it!",
-      "estimatedTime": "2 hours",
-      "passagers": 4,
-      "contribution":100,
-      "departure": "2016-02-04T21:22:00.000Z",
-      "reviews": [
-        "->reviews.one"
-      ]
-    },
-       "two": {
-      "_id": "57029ed4795118be119cc44d",
-      "user": "->users.johnsmith",
-      "origin":"Colorado Springs,CO",
-      "destination": "Manitou Springs,CO",
-      "description":"if someone wanna go to !, come on lets do it!",
-      "estimatedTime": "2 hours",
-      "passagers": 4,
-      "contribution":200,
-      "departure": "2016-02-04T21:22:00.000Z",
-      "reviews":[
-        "->reviews.two",
-        "->reviews.four"
-
-      ]
-    },
-    "three": {
-      "_id": "57029ed4795118be119cc440",
-      "user": "->users.clarkdark",
-      "origin":"Colorado Springs,CO",
-      "destination": "Crestone,CO",      
-      "description": "I need go to found the land in Crestone, if someone wanna go, we share costs",
-      "estimatedTime": "6 hours",
-      "passagers": 2,
-      "contribution":50,
-      "departure": "2016-02-04T21:22:00.000Z",
-      "reviews":[
-        "->reviews.three"
-      ]
+    "_id": "595b1615e9cb0b0029a21923",
+    "longitud": "-97.7431141",
+    "latitud": "30.2671663",
+    "departureTime": "20:21:00",
+    "departureDate": "1028-01-12",
+    "description": "ROCK ON!",
+    "passengerAvailable": "2",
+    "passengers": "2",
+    "estimatedTime": "14 hours 5 mins",
+    "destination": "Austin, TX ",
+    "origin": "Arvada, CO ",
+    "user": [ 
+      "->users.juangil"
+     ]
     }
   }
 }  

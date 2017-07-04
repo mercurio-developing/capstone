@@ -9,9 +9,12 @@ const Schema =  mongoose.Schema,
 
 TravelSchema = new Schema ({
 
-	user : {
-		type: ObjectId,
-		ref: 'User'
+    user: {
+            type : ObjectId,
+            ref: 'User'
+        },
+	email : {
+		type:String,
 	},
 	    origin: {
         type: String,
@@ -26,18 +29,12 @@ TravelSchema = new Schema ({
         required: true
     },
     estimatedTime: String,
-    passegers:Number,
-    contribution:Number,
-    departure:{
-        type: Date,
-        default: Date.now
-    },
-    weather : [{
-        Tmax: String,
-        Tmin: String,
-        summary: String,
-        icon: String,
-    }]
+    passengers:Number,
+    passengerAvailable:Number,
+    departureDate: String,
+    departureTime: String,
+    latitud:Number,
+    longitud:Number
 	}).plugin(deepPopulate, {
   whitelist: [
     'user',
