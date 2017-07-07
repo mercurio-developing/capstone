@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 var Travel   = require('./models/travel');
 var User 	 = require("./models/user");
 var Review 	 = require("./models/review");
-var     data = require('./data/data.json');
+var data     = require('./data/data.json');
 
 var seeder = require('mongoose-seeder');
  

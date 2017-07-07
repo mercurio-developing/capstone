@@ -1,20 +1,5 @@
-<section class="travelpage"> 
-    <h1 >Welcome {{username}}</h1>
-    <h2 style="margin-top:10px; color:firebrick;" >Travel Directory</h2>
-    <div><p ng-model="message"></p></div>
-    <form name="myform"
-    ng-submit="searchTravel()">  
-    <fieldset>
-     <input type="search" ng-model="search.query" name="search" placeholder="Search..." class="ui-autocomplete-input form-control input-lg" autocomplete="off">
-    </fieldset>
-    <button type="submit" class="btn" style="margin-top:16px">Search</button>
-    </form>
-      <hgroup class="mb10">
-        <h1>Search Results</h1>
-        <h2 class="lead"><strong class="text-danger">3</strong> results were found for the search for <strong class="text-danger">Lorem</strong></h2>        
-      </hgroup>
-        <section class="col-md-12 col-md-6 col-md-12">
-            <article class="search-result row"  ng-repeat="travel in travels">
+        <section ng-show="showTravels" class="col-md-12 col-md-6 col-md-12">
+            <article class="search-result row"  ng-repeat="travel in travels | filter:{origin : search}">
               <div class="col-xs-12 col-sm-12 col-md-3">
                 <h4>{{travel.user.firstName}} {{travel.user.lastName}}</h4>
                 <a title="{{travel.title}}" class="thumbnail"><img src="https://placeimg.com/640/480/people" alt="Lorem ipsum" /></a>
@@ -47,18 +32,8 @@
                 <a type="button" class="btn btn-primary btn-xs btn-update btn-add-card" ng-href="#!/search/{{travel._id}}" ng-click="searchTravelId(id)">Details</a>
                 <span class='glyphicon glyphicon-exclamation-sign text-danger pull-right icon-style'></span>
             </div>
+            
 
-
-             <!--    <h4 style="margin-top:16px" class="mb10" >{{travel.origin}} to {{travel.destination}}</h2>
-                <h3>
-                 <p style="font-size: 16px"><img class="time" src="images/time.svg" alt="">{{travel.estimatedTime}}<img class="chair" src="images/chair.svg" alt="">{{travel.passagers}}<img class="time" src="images/calendar.svg" alt="">{{travel.departure | date:'yyyy-MM-dd'}}</p>           
-                <span class="clearfix borda"></p>         
-                 <p style="font-size: 16px"></span>
-                <p style="font-size: 16px">{{travel.description}}</p>            
-                <span class="clearfix borda"></span>
- -->
-
-        </article>          
-     </div>
-  </div>
-</section>
+  
+        </article>  
+        </section>

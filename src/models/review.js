@@ -1,6 +1,7 @@
 'user strict'
 
 var mongoose = require('mongoose');
+var deepPopulate = require('mongoose-deep-populate')(mongoose);
 
 var Schema =  mongoose.Schema,
 	ObjectId =  Schema.Types.ObjectId
@@ -11,6 +12,10 @@ ReviewSchema = new Schema ({
 			type : ObjectId,
 			ref: 'User'
 		},
+	passenger:[{
+            type : ObjectId,
+            ref: 'User'
+    }],
 	postedOn: {
 		type: Date,
 		default: Date.now
@@ -21,8 +26,12 @@ ReviewSchema = new Schema ({
 		min: 1,
 		max: 5 
 	},
-	review: String	
-})
+	description: String
+}).plugin(deepPopulate, {
+  whitelist: [
+    'user',
+  ]
+});
 
 
 const Review = mongoose.model("Review", ReviewSchema);

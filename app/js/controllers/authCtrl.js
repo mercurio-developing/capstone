@@ -24,10 +24,10 @@ function AuthCtrl($timeout,$scope,dataService,$location, $localStorage,
         dataService.loginUser(user, function (response) {
         $localStorage.token = response.data.token 
         $localStorage.email = response.data.email
-        console.log(response.data.email)
+        $localStorage.id = response.data._id
         $scope.token = $localStorage.token
         $localStorage.isToken  = true;
-        console.log($scope.token)
+        console.log(response)
         $localStorage.user = (response.data.firstName + "  " + response.data.lastName).toString();        
         $location.path("/success"); 
      }, errorHandler);              

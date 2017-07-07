@@ -53,7 +53,7 @@ function NewTravelCtrl(NgMap,$scope, $filter,dataService,$localStorage,$http,$st
         }); 
     };  
 
-    $scope.searchWeather = function(data,weather){
+    $scope.searchWeather = function(weather){
         $scope.changeClass()
         var weather = new Array({
             longitud : $scope.longitud,
@@ -78,7 +78,8 @@ function NewTravelCtrl(NgMap,$scope, $filter,dataService,$localStorage,$http,$st
             departureDate:$scope.data.date,
             departureTime:$scope.data.time,
             latitud:$scope.latitud,
-            longitud:$scope.longitud       
+            longitud:$scope.longitud,
+      
              })
         
             dataService.newTravel(info, function(response){

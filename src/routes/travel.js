@@ -6,7 +6,8 @@ var Review 	 = require("../models/review");
 
 router.get("/",function (req,res){
 	Travel.find({})
-    .deepPopulate('user', {populate: {user: {select: 'firstName lastName _id'}}})
+    .populate('creator', 'email firstName lastName _id')
+    .deepPopulate('userPassenger', {populate: {userPassenger: {select: 'firstName lastName email _id'}}})
     .exec(function(err, travels){
 		if(err){
 			err.status = 404,
@@ -17,16 +18,7 @@ router.get("/",function (req,res){
 });
 
 router.post("/newtravel",function (req,res,next){
-       
-       var time = req.body[0].departureTime
-            var date = req.body[0].departureDate
-                time = time.toString("HHmmss").
-                        replace(/T/, ' ').  
-                        replace(/\..+/, '').substr(11, 21) 
-
-                date = date.substr(0,10)
-                console.log(req.body)
-                console.log(req.body[0].email)
+            
        User.findOne({email: req.body[0].email})
         .exec(function (err, user) {
             if (err) {
@@ -39,8 +31,18 @@ router.post("/newtravel",function (req,res,next){
             
             var userId = user
                 
-            var travelData = {
-                user : userId,
+            // if (req.body[0].state === 'creator' ){
+
+        var time = req.body[0].departureTime
+            var date = req.body[0].departureDate
+                time = time.toString("HHmmss").
+                        replace(/T/, ' ').  
+                        replace(/\..+/, '').substr(11, 21) 
+
+                date = date.substr(0,10)       
+
+     const travel = new Travel({
+                creator : userId,
                 origin: req.body[0].origin,
                 destination: req.body[0].destination,
                 estimatedTime: req.body[0].estimatedTime,
@@ -50,22 +52,27 @@ router.post("/newtravel",function (req,res,next){
                 departureDate:date,
                 departureTime:time,
                 latitud: req.body[0].latitud,
-                longitud: req.body[0].longitud
+                longitud: req.body[0].longitud,
+                state:"open"
+                })
 
-                }
-          
-           Travel.create(travelData,function (err, travel) {
-                if (err){
-                    const err = new Error('That travel already exists');
-                    err.status = 500;
+        travel.save(function(err, newTravel){
+                if(err) {
+                    err.status = 400;
                     return next(err)
-                } else {
-                  console.log(travel)
-                  res.status(201).location('/').end();
                 }
+                userId.travelOfCreator.push(newTravel);
+                userId.save(function(err, travel){
+                    if(err){
+                        err.status = 400;
+                        return next(err)
+                    } 
+                    res.status(201)
+                    res.json(travel)
+                    res.end()
+                });
               });
-           
-            }
+             }
           });
         }); 
 
@@ -73,9 +80,8 @@ router.post("/newtravel",function (req,res,next){
 
 router.route("/:id")
       .get(function(req, res, next){
-        console.log(req.params.id)
 		Travel.findById(req.params.id)
-              .deepPopulate('user', {populate: {user: {select: 'firstName lastName email'}}})
+              .deepPopulate('creator', {populate: {creator: {select: 'firstName lastName email _id'}}})
 		 	  .exec(function(err, travel){
 			if(!travel){
 				res.status = 401
@@ -85,21 +91,53 @@ router.route("/:id")
 			}
 		  });	
 	})	
-     .put(function(req, res,next) {
-    var id = req.params.travelId;
-    Travel.findByIdAndUpdate(id, { 
-    	$set: {
-    		passagers : req.body.passager,
-    }},{new:true},
-        function(err,update) {
-            if (err) {
-                return next(err);
-            }
-            res.status(204);
-            res.location("/");
-            res.end();
-        }); 
-	});
+     .post(function(req, res,next) {
+        
+        var id = req.params.id;
+    Travel.findById(req.params.id)
+              .exec(function(err, travel){
+            if(!travel){
+                res.status = 401
+                return next(err)
+            } else {
 
+            User.findOne({email: req.body[0].email})
+                .exec(function (err, user) {
+                    if (err) {
+                        next (err);
+                    } else if (!user) {
+                        const err = new Error('User not found.');
+                        err.status = 401;
+                        return next(err)
+                    } else {
+                        var userData = user           
+                            travel.userPassenger.push(userData);
+                            travel.save(function(err, updateUser){
+                                    if(err){
+                                        err.status = 400;
+                                        return next(err)
+                                    } 
+                                console.log(updateUser)   
+                                res.status(201)
+                                res.json(updateUser)
+                                });
+                             }
+                        })
+                      }
+                  });   
+        	   })
+        
+    //     .put(function(req,res,next){
+    //         Travel.findById({_id:req.params.id},{},{$set:{state:"closed"}},{new:true})
+    //           .exec(function(err, travel){
+    //         if(!travel){
+    //             res.status = 401
+    //             return next(err)
+    //         } else {
+    //             res.status(204);
+    //             res.send(travel);
+    //       } 
+    //     })
+    // });
 
 module.exports = router

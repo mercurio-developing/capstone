@@ -1,0 +1,37 @@
+<section class="newtravel">
+    
+ <div class="container">
+    <div class="col-12" style="margin:30px 25px 10px 25px">
+      <!-- MAP -->      
+      <div>
+        <label style="padding-right: 38px">
+          <h1>Origen:{{travel.origin}}</h1>
+        </label>
+      </div>   
+      
+      <div>
+        <label style="padding-right: 38px">
+          <h1>Destination:{{travel.destination}}</h1>
+        </label>   
+      </div>  
+        
+        <nav class="cf" ng-include="'views/partials/map.html'"></nav>
+
+    </div>
+    
+    <!--TRAVEL DETAILS-->
+        <div class="container">
+             <div class="col-md-12"> 
+                <nav class="cf" ng-include="'views/partials/travel_detail.html'"></nav>
+             </div>
+             <div class="col-md-6"> 
+                 <nav class="cf" ng-include="'views/partials/weather.html'"></nav>
+             </div>
+             <div class="col-md-6">
+                  <nav class="cf" ng-include="'views/partials/yelp.html'"></nav>
+             </div>
+          </div>
+        </div>             
+      </div>
+</section>
+

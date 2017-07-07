@@ -8,7 +8,8 @@ var Review 	 = require("../models/review");// var mid  = require("../middleware"
 var bcrypt = require('bcryptjs');
 
 
-router.route("/")
+
+router.route("/register")
       .get(function(req, res, next){
 		User.find({})
 		 	  .exec(function(err, users){
@@ -27,8 +28,7 @@ router.route("/")
 		  if (req.body.email &&
 			     req.body.firstName &&
 			   	  req.body.lastName &&
-		          req.body.password) 
-		  {
+		          req.body.password) {
 		      // create object 
 		      var userData = {
 		        firstName: req.body.firstName,
@@ -55,18 +55,5 @@ router.route("/")
 		    }
 		});
 
-// // //GET user "/"
-router.route("/:userId")
-      .get(function(req, res, next){
-		User.findById(req.params.userId)
-		 	  .exec(function(err, user){
-			if(!course){
-				res.status = 401
-				return next(err)
-			} else {
-       			res.status(200).json(user);
-			}
-		  });	
-		})		  
 
 module.exports = router;

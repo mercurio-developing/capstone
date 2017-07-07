@@ -28,7 +28,15 @@ const UserSchema =  new Schema ({
     password:{
         type:String,
         required:true
-    }
+    },
+    reviews : [{
+        type: ObjectId,
+        ref:'Review'
+        }],
+    travelOfCreator : [{
+        type: ObjectId,
+        ref:'Travel'
+        }]
 })
 
 // authenticate input against database documents

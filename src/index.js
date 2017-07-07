@@ -50,7 +50,7 @@ app.get('/vendor/ng-videosharing-embed.js', function(req, res) {
 // });
 
 app.use('/login'      , loginRoutes);
-app.use('/register'   , userRoutes);
+app.use('/user/'   , userRoutes);
 app.use('/api/travel' , travelRoutes);
 app.use('/api/google' , googleRoutes);
 app.use('/api/weather', weatherRoutes);

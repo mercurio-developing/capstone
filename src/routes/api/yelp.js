@@ -19,7 +19,7 @@ router.post("/",function (req,res,next){
 	let latitud = req.body[0].latitud;
     let longitud = req.body[0].longitud;
 	console.log(req.body)
-	yelp.search({term: 'hotel', latitude:latitud,longitude:longitud, limit: 10})
+	yelp.search({term: 'hotel', latitude:latitud,longitude:longitud,limit: "5",price:"1"})
 	
 	.then(function (data) {
 	    res.send(data)

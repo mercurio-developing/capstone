@@ -1,0 +1,24 @@
+<section class="travelpage"> 
+    <h1 >Welcome {{username}}</h1>
+    
+    <h2 style="margin-top:10px; color:firebrick;" ><a ng-click="showTravel()" href="">Travel Directory</a>/<a  ng-click="showUser()" href="">User Directory</a></h2>
+    <div><p ng-model="message"></p></div>
+    
+    <form name="myform"
+    ng-submit="searchTravel();searchUsers()">  
+    <fieldset>
+     <input type="search" ng-model="search" name="search" placeholder="Search..." class="ui-autocomplete-input form-control input-lg" autocomplete="off">
+    </fieldset>
+    <button type="submit" class="btn" style="margin-top:16px">Search</button>
+    </form>
+      <hgroup class="mb10">
+        <h1>Search Results</h1>
+        <h2 class="lead"><strong class="text-danger">3</strong> results were found for the search for <strong class="text-danger">Lorem</strong></h2>        
+      </hgroup>
+        <!-- SEARCH TRAVEL -->
+      <nav class="cf" ng-include="'views/partials/search_travel.html'"></nav>
+        <!-- SEARCH USER -->
+      <nav class="cf" ng-include="'views/partials/search_user.html'"></nav>
+     </div>
+  </div>
+</section>

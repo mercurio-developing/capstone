@@ -19,12 +19,12 @@ function config($stateProvider, $urlRouterProvider) {
           }).
           state('detailTravel', {
             url: '/search/:id',
-            templateUrl: 'views/detailTravel.html',
+            templateUrl: 'views/travel_created.html',
             controller: 'DetailCtrl'
           }).
           state('search', {
           url:'/search',
-          templateUrl: 'views/searchCtrl.html',
+          templateUrl: 'views/search.html',
           controller: 'SearchCtrl'
         }).
           state('success', {
@@ -34,14 +34,14 @@ function config($stateProvider, $urlRouterProvider) {
         }).
           state('newTravel', {
           url:'/new_travel',
-          templateUrl: 'views/newTravel.html',
+          templateUrl: 'views/new_travel.html',
           controller: 'NewTravelCtrl'
-        })
-        //   state('userDetail', {
-        //   url:'/userDetail',
-        //   templateUrl: 'views/userDetail.html',
-        //   controller: 'DetailCtrl'
-        // })  
+        }).
+          state('userDetail', {
+          url:'/user_detail/:id',
+          templateUrl: 'views/user_detail.html',
+          controller: 'userDetailCtrl'
+        })  
        }   
 
 function run ($timeout,$http,$rootScope,$localStorage,$location,$transitions) { 

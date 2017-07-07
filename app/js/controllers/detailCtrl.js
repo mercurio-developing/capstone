@@ -5,43 +5,93 @@
 		.module('app')
 		.controller('DetailCtrl', DetailCtrl);	
 
-function DetailCtrl($scope,dataService,$location) {
+function DetailCtrl($scope,dataService,$location,$localStorage) {
 	$scope.show = false;
     $scope.showHotels = false;
+    var state;
 
     var id = $location.url().split('/')[2];
         dataService.getTravelId(id,function (response) {
         $scope.travel = response.data
         $scope.longitud = response.data.longitud
         $scope.latitud = response.data.latitud
-        console.log(response.data)
+        $scope.creator = response.data.creator._id
+        $scope.passengers = response.data.passengers
+        $scope.userPassengers = response.data.userPassenger.length
+        $scope.availableSeats = Number($scope.passengers) - Number($scope.userPassengers)
+       
+        if ($scope.availableSeats === 0){
+            $scope.hideButton = true
+        } else{
+            $scope.hidebutton = false
+        }
+       
         }); 
      
     
-    $scope.searchWeather = function(data,weather){
- 	var weather = new Array({
+    $scope.searchWeather = function(data,weather,show){
+ 	
+    var weather = new Array({
             longitud : $scope.longitud,
             latitud: $scope.latitud
     })
-    $scope.show = true;
+    
+    if ($scope.show === false){
+            $scope.show = true;
+
  	dataService.getWeather(weather, function(response){
             $scope.temperatures = response.data.daily.data
             $scope.today = response.data.daily.data[0]
         })
+    } else {
+             $scope.show = false;
+        }    
  	}
 
-    $scope.searchHotel = function(data,location){
+    $scope.searchHotel = function(data,location,showHotels){
+    
     var location = new Array({
             longitud : $scope.longitud,
             latitud: $scope.latitud
     })
-    $scope.showHotels = true;
-    dataService.getHotels(location, function(response){
-        console.log(response)
-        $scope.businesses = response.data.businesses
-        
 
+    if ($scope.showHotels === false){
+        $scope.showHotels = true;
+        dataService.getHotels(location, function(response){
+        $scope.businesses = response.data.businesses
         })
+    } else{
+        $scope.showHotels = false;
+        }
+    }
+
+    $scope.takeSeat = function(state){
+        if ($scope.availableSeats === 1){
+            var info = new Array({
+            creator: $scope.creator,
+            email:$localStorage.email,
+            state:"closed"
+            //  })
+            // dataService.updateState(id,info,function(response){    
+           
+            // dataService.updateSeat(id,info,function(response){    
+            //         $location.path("/search");      
+
+            //         });            
+            });
+        } else {
+            var info = new Array({
+            creator: $scope.creator,
+            email:$localStorage.email,
+            state:"open"
+             })
+        }
+ 
+
+    dataService.updateSeat(id,info,function(response){    
+            $location.path("/search");      
+
+    });
     }
 
  };
