@@ -14,7 +14,7 @@ var Review 	 = require("./models/review");
 var travelRoutes   = require('./routes/travel');
 var userRoutes 	   = require('./routes/user');
 var profileRoutes    = require('./routes/profile');
-var googleRoutes   = require('./routes/api/google.search');
+var googleRoutes   = require('./routes/api/google');
 var weatherRoutes  = require('./routes/api/weather');
 var yelpRoutes     = require('./routes/api/yelp');
 
