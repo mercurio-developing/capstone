@@ -9,6 +9,8 @@ function DetailCtrl($scope,dataService,$location,$localStorage) {
 	$scope.show = false;
     $scope.showHotels = false;
 
+    $scope.googleMapsUrl="https://maps.googleapis.com/maps/api/js?key=AIzaSyCloG6KeNWUu9OJyKFHoskqT_1hG14fgtE"
+
     var id = $location.url().split('/')[2];
         dataService.getTravelId(id,function (response) {
         $scope.travel = response.data

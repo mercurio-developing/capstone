@@ -15,7 +15,18 @@
         </label>   
       </div>  
         
-        <nav class="cf" ng-include="'views/partials/map.html'"></nav>
+      <div map-lazy-load="https://maps.google.com/maps/api/js"
+        map-lazy-load-params="{{googleMapsUrl}}">
+          <ng-map zoom="12" center="current-location">
+            <directions
+              origin = "{{origin}}"
+              destination="{{destination}}"
+              draggable="true"
+              travel-mode="DRIVING"
+             >
+            </directions>
+          </ng-map> 
+      </div>
 
     </div>
     
