@@ -4,7 +4,7 @@
   "description": "Final Proyect",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon src/app.js"
+    "start": "nodemon src/index.js"
   },
   "author": "Alejandro Fidanza",
   "license": "MIT",
