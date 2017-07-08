@@ -38,7 +38,7 @@ function NewTravelCtrl(NgMap,$scope,dataService,$localStorage,$http,$state,$loca
       $scope.searchLocation = function (location) {    
         $scope.searchWeather();
         var location = $scope.location   
-        
+        console.log(location)
         dataService.getLocation(location,function (response) {
         $scope.latitud = response.data.json.routes[0].legs[0].end_location.lat
         $scope.longitud = response.data.json.routes[0].legs[0].end_location.lng
@@ -81,8 +81,9 @@ function NewTravelCtrl(NgMap,$scope,dataService,$localStorage,$http,$state,$loca
             longitud:$scope.longitud
       
              })
-        
+            console.log(info)
             dataService.newTravel(info, function(response){
+
                 $location.path("/search");      
         })
     }
