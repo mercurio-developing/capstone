@@ -2,7 +2,6 @@
 
 const express = require("express");
 const router  = express.Router();
-var util = require('util');
 
 var DarkSky = require('forecast.io');
 
