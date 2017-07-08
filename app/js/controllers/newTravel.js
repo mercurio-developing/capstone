@@ -6,7 +6,6 @@
         .controller('NewTravelCtrl', NewTravelCtrl);  
 
 function NewTravelCtrl(NgMap,$scope,dataService,$localStorage,$http,$state,$location) {
-        $scope.googleMapsUrl="https://maps.googleapis.com/maps/api/js?key=AIzaSyDR_1Pb3201Lhw6lL7AMwwCklfpc4vCVDs&callback"
 
         $scope.show = false
         $scope.textButton = "More details.."
