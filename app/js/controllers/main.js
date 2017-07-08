@@ -6,7 +6,8 @@
 		.controller('MainCtrl', MainCtrl);	
 
 function MainCtrl($state,$scope,$timeout,$location,$localStorage,dataService,$interval) {     
-    
+    $scope.googleMapsUrl="https://maps.googleapis.com/maps/api/js?key=AIzaSyCloG6KeNWUu9OJyKFHoskqT_1hG14fgtE"
+
     
     $scope.logout = function($scope, viewUser) {
           $localStorage.$reset()
