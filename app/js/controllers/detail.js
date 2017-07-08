@@ -8,7 +8,6 @@
 function DetailCtrl($scope,dataService,$location,$localStorage) {
 	$scope.show = false;
     $scope.showHotels = false;
-    var state;
 
     var id = $location.url().split('/')[2];
         dataService.getTravelId(id,function (response) {
@@ -65,26 +64,17 @@ function DetailCtrl($scope,dataService,$location,$localStorage) {
         }
     }
 
-    $scope.takeSeat = function(state){
-        if ($scope.availableSeats === 1){
+    $scope.takeSeat = function(info){
             var info = new Array({
             creator: $scope.creator,
-            email:$localStorage.email,
-            state:false       
+            email:$localStorage.email
             });
-        } else {
-            var info = new Array({
-            creator: $scope.creator,
-            email:$localStorage.email,
-            state:true
-          })
-        }
+        
  
-
     dataService.updateSeat(id,info,function(response){    
             $location.path("/search");      
             });
         }
+    }
 
- };
 })();

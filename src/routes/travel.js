@@ -3,6 +3,7 @@ const router  = express.Router();
 var Travel   = require('../models/travel')
 var User 	 = require("../models/user");
 var Review 	 = require("../models/review");
+const jwt = require("jsonwebtoken");
 
 router.get("/",function (req,res){
 	Travel.find({})
@@ -98,7 +99,6 @@ router.route("/:id")
                 res.status = 401
                 return next(err)
             } else {
-
             User.findOne({email: req.body[0].email})
                 .exec(function (err, user) {
                     if (err) {
@@ -115,7 +115,6 @@ router.route("/:id")
                                         err.status = 400;
                                         return next(err)
                                     } 
-                                console.log(updateUser)   
                                 res.status(201)
                                 res.json(updateUser)
                                 });
@@ -125,17 +124,4 @@ router.route("/:id")
                   });   
         	   })
         
-    //     .put(function(req,res,next){
-    //         Travel.findByIdAndUpdate({_id:req.params.id},{},{$set:{state:"closed"}},{new:true})
-    //           .exec(function(err, travel){
-    //         if(!travel){
-    //             res.status = 401
-    //             return next(err)
-    //         } else {
-    //             res.status(204);
-    //             res.send(travel);
-    //       } 
-    //     })
-    // });
-
 module.exports = router

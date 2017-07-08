@@ -15,8 +15,6 @@ var googleMapsClient = require('@google/maps').createClient({
   key: 'AIzaSyBDxB0YAtqEVlm5aI-FsYi5tHiXK-oqv4A'
 });
 
-
-
 router.post("/maps",function(req,res){
 
 
@@ -39,7 +37,6 @@ const location = googleMapsClient.directions({
 }, function(err, data) {
   if (!err) {
   	res.send(data)
-    // resultSearch.push(response.data.json.routes[0].legs[0].end_location.lng)
   }
   });
 

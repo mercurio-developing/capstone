@@ -7,8 +7,6 @@
 
 function MainCtrl($state,$scope,$timeout,$location,$localStorage,dataService,$interval) {     
 
-
-
     $scope.logout = function($scope, viewUser) {
           $localStorage.$reset()
           $location.path("/login")
@@ -17,33 +15,24 @@ function MainCtrl($state,$scope,$timeout,$location,$localStorage,dataService,$in
      $interval(function() {
         $scope.username = $localStorage.user
         $scope.email = $localStorage.email
-        $scope.user_id = $localStorage.idf          
+        $scope.user_id = $localStorage.id       
     }, 100);
 
-
-
     $scope.profile = function() {
-    var id = $localStorage.id
-    dataService.getUserId(id,function(response){    
+      var id = $localStorage.id
+      dataService.getUserId(id,function(response){    
     
         $scope.user = response.data[0]
         $scope.travels = response.data[1]
         $scope.travelsPass = response.data[2]
         $scope.reviews = response.data[3]
 
-
-        console.log(response)
-
        });
     }
 
     $scope.isLoggedIn = function() {
-    return ($localStorage.token) ? true : false;
-    };
-
-  
-  }
-
-
+      return ($localStorage.token) ? true : false;
+      }; 
+    }
 
 })();

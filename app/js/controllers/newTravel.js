@@ -5,10 +5,8 @@
         .module('app')
         .controller('NewTravelCtrl', NewTravelCtrl);  
 
-function NewTravelCtrl(NgMap,$scope, $filter,dataService,$localStorage,$http,$state,$location,$templateCache) {
+function NewTravelCtrl(NgMap,$scope,dataService,$localStorage,$http,$state,$location) {
         
-
-
         $scope.show = false
         $scope.textButton = "More details.."
 
@@ -35,13 +33,11 @@ function NewTravelCtrl(NgMap,$scope, $filter,dataService,$localStorage,$http,$st
                             componentRestrictions: { country: 'us' },
                         }
 
-      
       $scope.searchLocation = function (location) {    
         $scope.searchWeather();
         var location = $scope.location   
         
         dataService.getLocation(location,function (response) {
-            console.log(response)
         $scope.latitud = response.data.json.routes[0].legs[0].end_location.lat
         $scope.longitud = response.data.json.routes[0].legs[0].end_location.lng
         $scope.duration = response.data.json.routes[0].legs[0].duration.text

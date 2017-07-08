@@ -5,10 +5,16 @@
         .module('app')
         .controller('SearchCtrl', SearchCtrl);  
 
-function SearchCtrl($window,$scope,dataService,$localStorage,$http,$state,$location) {
+function SearchCtrl($interval,$scope,dataService,$localStorage,$http,$location) {
 
     $scope.showTravels = false;
     $scope.showUsers = false;
+
+    $interval(function() {
+        $scope.username = $localStorage.user
+        $scope.email = $localStorage.email
+        $scope.user_id = $localStorage.id       
+    }, 100);
 
     $scope.showTravel = function(){
      if ($scope.showTravels === false){
@@ -45,9 +51,7 @@ function SearchCtrl($window,$scope,dataService,$localStorage,$http,$state,$locat
         
         dataService.getUsers(function(response){
         $scope.users = response.data
-
-        console.log(response.data)
         });
-    }
+      }
 
 })();

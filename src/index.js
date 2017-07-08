@@ -14,7 +14,7 @@ var Review 	 = require("./models/review");
 
 var travelRoutes   = require('./routes/travel');
 var userRoutes 	   = require('./routes/user');
-var loginRoutes    = require('./routes/login');
+var profileRoutes    = require('./routes/profile');
 var googleRoutes   = require('./routes/api/google.search');
 var weatherRoutes  = require('./routes/api/weather');
 var yelpRoutes     = require('./routes/api/yelp');
@@ -31,26 +31,14 @@ app.use(bodyParser.urlencoded({
     extended: false
 }));
 
-// app.use('/api', jwtExpress({secret: secretKey}));
+app.use('/api', jwtExpress({secret: secretKey}));
 
 require('./database');
 
 app.use('/', express.static('app'));
-// vendor scripts
-app.get('/vendor/angular.js', function(req, res) {
-  res.sendFile(path.join(__dirname, '../node_modules', 'angular', 'angular.js'));
-});
 
-app.get('/vendor/ng-videosharing-embed.js', function(req, res) {
-  res.sendFile(path.join(__dirname, '../node_modules', 'ng-videosharing-embed','build','ng-videosharing-embed.min.js'));
-});
-
-// app.get('/vendor/angular-route.js', function(req, res) {
-//   res.sendFile(path.join(__dirname, '../node_modules', 'angular-route', 'angular-route.js'));
-// });
-
-app.use('/login'      , loginRoutes);
-app.use('/user/'   , userRoutes);
+app.use('/api/profile'      , profileRoutes);
+app.use('/user'   , userRoutes);
 app.use('/api/travel' , travelRoutes);
 app.use('/api/google' , googleRoutes);
 app.use('/api/weather', weatherRoutes);

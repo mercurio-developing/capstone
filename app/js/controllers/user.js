@@ -5,7 +5,7 @@
 		.module('app')
 		.controller('userDetailCtrl', userDetailCtrl);	
 
-function userDetailCtrl($state,$scope,dataService,$location,$localStorage) {
+function userDetailCtrl($state,$scope,dataService,$location,$localStorage,$window) {
 
     $scope.showReview = false;
     $scope.showTravel = false;
@@ -35,27 +35,20 @@ function userDetailCtrl($state,$scope,dataService,$location,$localStorage) {
           $scope.travels = response.data[1]
           $scope.travelsPass = response.data[2]
           $scope.reviews = response.data[3]
-
-          console.log(response)
-
-             });
+      });
         
 		$scope.newReview = function(review){
 		var review = new Array({
             creator: $localStorage.id,
             description : $scope.reviews.description,
             rating : $scope.reviews.rating
-             })
+       })
     
     var id = $scope.user._id
 		dataService.postReview(id,review, function(response){
-			console.log(response)
-      $state.reload();
-
-
-		})
-	}
-
+          $window.location.reload()
+    	 })
+    	}
 
     $scope.userDetail = function() {
   		var id = $location.url().split('/')[2];
@@ -64,19 +57,15 @@ function userDetailCtrl($state,$scope,dataService,$location,$localStorage) {
           $scope.travels = response.data[1]
           $scope.travelsPass = response.data[2]
           $scope.reviews = response.data[3]
-
-          console.log(response)
-
-     		 });
-     	}
+     	  });
+     	 }
 
    	 function errorHandler(reason) { //error handler function create one scope array for errors
             $scope.errors = [];
             for (let err in reason.data.errors) { //when one errorhandler is success this push the reason error inside of the array
                 $scope.errors.push(reason.data.errors[err][0].userMessage);//for give the data necessary to the user
-                console.log($scope.errors)
             }
           }
-
         }   
+
 })();

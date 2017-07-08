@@ -27,7 +27,6 @@ function AuthCtrl($timeout,$scope,dataService,$location, $localStorage,
         $localStorage.id = response.data._id
         $scope.token = $localStorage.token
         $localStorage.isToken  = true;
-        console.log(response)
         $localStorage.user = (response.data.firstName + "  " + response.data.lastName).toString();        
         $location.path("/success"); 
      }, errorHandler);              

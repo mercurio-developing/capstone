@@ -63,6 +63,5 @@ function run ($timeout,$http,$rootScope,$localStorage,$location,$transitions,$st
                 $location.path("/login");
            }
         });
-
        }
 })();
