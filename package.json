@@ -4,7 +4,7 @@
   "description": "Final Proyect",
   "main": "index.js",
   "scripts": {
-    "start": "node src/app.js"
+    "start": "nodemon src/app.js"
   },
   "author": "Alejandro Fidanza",
   "license": "MIT",
@@ -16,6 +16,9 @@
     "url": "https://github.com/mercurio-developing/capstone/issues"
   },
   "homepage": "https://github.com/mercurio-developing/capstone#readme",
+  "engines":{
+    "node":"6.11.0"
+  },
   "dependencies": {
     "angular": "^1.5.3",
     "angular-google-maps": "^2.4.1",
