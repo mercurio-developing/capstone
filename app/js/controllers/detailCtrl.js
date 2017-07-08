@@ -70,29 +70,21 @@ function DetailCtrl($scope,dataService,$location,$localStorage) {
             var info = new Array({
             creator: $scope.creator,
             email:$localStorage.email,
-            state:"closed"
-            //  })
-            // dataService.updateState(id,info,function(response){    
-           
-            // dataService.updateSeat(id,info,function(response){    
-            //         $location.path("/search");      
-
-            //         });            
+            state:false       
             });
         } else {
             var info = new Array({
             creator: $scope.creator,
             email:$localStorage.email,
-            state:"open"
-             })
+            state:true
+          })
         }
  
 
     dataService.updateSeat(id,info,function(response){    
             $location.path("/search");      
-
-    });
-    }
+            });
+        }
 
  };
 })();

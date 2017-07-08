@@ -5,7 +5,7 @@
         .module('app')
         .controller('SearchCtrl', SearchCtrl);  
 
-function SearchCtrl($scope,dataService,$localStorage,$http,$state,$location) {
+function SearchCtrl($window,$scope,dataService,$localStorage,$http,$state,$location) {
 
     $scope.showTravels = false;
     $scope.showUsers = false;
@@ -39,21 +39,15 @@ function SearchCtrl($scope,dataService,$localStorage,$http,$state,$location) {
         }
         
     $scope.username = $localStorage.user
-    $scope.searchTravel = function () {    
         dataService.getTravels(function (response) {
         $scope.travels = response.data
-        console.log(response.data)
         }); 
-      }
-  
-    $scope.searchUsers = function(){
+        
         dataService.getUsers(function(response){
         $scope.users = response.data
 
         console.log(response.data)
-        })
-      }
-    
+        });
     }
 
 })();

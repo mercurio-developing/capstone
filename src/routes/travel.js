@@ -40,7 +40,7 @@ router.post("/newtravel",function (req,res,next){
                         replace(/\..+/, '').substr(11, 21) 
 
                 date = date.substr(0,10)       
-
+                console.log(req.body)
      const travel = new Travel({
                 creator : userId,
                 origin: req.body[0].origin,
@@ -52,8 +52,7 @@ router.post("/newtravel",function (req,res,next){
                 departureDate:date,
                 departureTime:time,
                 latitud: req.body[0].latitud,
-                longitud: req.body[0].longitud,
-                state:"open"
+                longitud: req.body[0].longitud
                 })
 
         travel.save(function(err, newTravel){
@@ -93,7 +92,6 @@ router.route("/:id")
 	})	
      .post(function(req, res,next) {
         
-        var id = req.params.id;
     Travel.findById(req.params.id)
               .exec(function(err, travel){
             if(!travel){
@@ -128,7 +126,7 @@ router.route("/:id")
         	   })
         
     //     .put(function(req,res,next){
-    //         Travel.findById({_id:req.params.id},{},{$set:{state:"closed"}},{new:true})
+    //         Travel.findByIdAndUpdate({_id:req.params.id},{},{$set:{state:"closed"}},{new:true})
     //           .exec(function(err, travel){
     //         if(!travel){
     //             res.status = 401

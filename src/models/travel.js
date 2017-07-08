@@ -37,7 +37,7 @@ TravelSchema = new Schema ({
     departureTime: String,
     latitud:Number,
     longitud:Number,
-    state:String
+    state:Boolean
 	}).plugin(deepPopulate, {
   whitelist: [
     'creator',

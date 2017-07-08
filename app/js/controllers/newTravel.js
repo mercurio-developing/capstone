@@ -5,8 +5,10 @@
         .module('app')
         .controller('NewTravelCtrl', NewTravelCtrl);  
 
-function NewTravelCtrl(NgMap,$scope, $filter,dataService,$localStorage,$http,$state,$location) {
+function NewTravelCtrl(NgMap,$scope, $filter,dataService,$localStorage,$http,$state,$location,$templateCache) {
         
+
+
         $scope.show = false
         $scope.textButton = "More details.."
 
@@ -78,7 +80,7 @@ function NewTravelCtrl(NgMap,$scope, $filter,dataService,$localStorage,$http,$st
             departureDate:$scope.data.date,
             departureTime:$scope.data.time,
             latitud:$scope.latitud,
-            longitud:$scope.longitud,
+            longitud:$scope.longitud
       
              })
         

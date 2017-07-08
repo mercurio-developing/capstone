@@ -5,7 +5,7 @@
 		.module('app')
 		.controller('userDetailCtrl', userDetailCtrl);	
 
-function userDetailCtrl($scope,dataService,$location,$localStorage) {
+function userDetailCtrl($state,$scope,dataService,$location,$localStorage) {
 
     $scope.showReview = false;
     $scope.showTravel = false;
@@ -40,20 +40,21 @@ function userDetailCtrl($scope,dataService,$location,$localStorage) {
 
              });
         
-		// $scope.newReview = function(review){
-		// var review = new Array({
-  //           email:$localStorage.email,
-  //           username: $localStorage.user,
-  //           description : $scope.review.description,
-  //           rating : $scope.review.rating,
-   
-  //            })
+		$scope.newReview = function(review){
+		var review = new Array({
+            creator: $localStorage.id,
+            description : $scope.reviews.description,
+            rating : $scope.reviews.rating
+             })
+    
+    var id = $scope.user._id
+		dataService.postReview(id,review, function(response){
+			console.log(response)
+      $state.reload();
 
-		// console.log("review")
-		// dataService.postReview(review, function(response){
-		// 	console.log(response)
-		// })
-	// }
+
+		})
+	}
 
 
     $scope.userDetail = function() {

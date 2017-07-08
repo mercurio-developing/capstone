@@ -1,4 +1,35 @@
+<section class="newtravel">
+    
+    <div class="row">
 
+  <div class="col-11" style="margin:30px 25px 10px 25px">
+      <!-- MAP -->
+    <h1>The Adventure Begins</h1>
+    <div><p ng-model="message"></p></div>
+   
+    <form name="myform" class="placeForm"
+    ng-submit="searchLocation()">  
+        <fieldset>
+        <div> 
+        <label style="padding-right: 38px">Origin:</label>
+        
+        <input  name="origin" type="text" g-places-autocomplete options="autocompleteOptions" force-selection="true" ng-model="location.origin" ng-required="true" /></div>
+       <div>
+       <label>Destination:</label>
+        
+        <input  name="destination" type="text" g-places-autocomplete options="autocompleteOptions"  force-selection="true" ng-model="location.destination" ng-required="true" /></div> 
+        
+        <button ng-click="buttonsEnabled = true" type="submit" class="btn" style="margin:20px 0px 20px 0px">Search</button>
+
+        </fieldset>
+            <nav class="cf" ng-include="'views/partials/map.html'"></nav>
+    </form>
+  </div>
+    <!--TRAVEL DETAILS-->
+        <div class="col-9" ng-class="class" style="margin-left: 25px">  
+            <div class="container"> 
+<!--              <nav class="cf" ng-include="'views/partials/new_travel_form.html'">
+ -->               
                  <div ng-show="destination && origin">
                             
                             <h4>{{titleOrig}} to {{titleDest}}</h4>
@@ -40,11 +71,11 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="control-label" for="appointmentfor">How many seats are available?</label>
-                                        <select style="width: 100px" ng-model="data.passengers" id="appointmentfor" name="appointmentfor" class="form-control" ng-required="true">
-                                            <option ng-model="data.passengers" >1</option>
-                                            <option ng-model="data.passengers" >2</option>
-                                            <option ng-model="data.passengers">3</option>
-                                            <option ng-model="data.passengers">4</option>
+                                        <select style="width: 100px" ng-model="data.passengers" form-control" ng-required="true">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
                                         </select>
                                     </div>
                                     <label>What's your travel plan?</label>
@@ -57,3 +88,12 @@
                                 <!-- Button -->
                         </form>
                         <!-- form end -->  
+                 </nav>
+            </div>
+        </div>   
+
+    <!--TRAVEL WEATHER-->
+        <nav class="cf" ng-include="'views/partials/new_travel_weather.html'"></nav>
+       
+    </div>
+</section>

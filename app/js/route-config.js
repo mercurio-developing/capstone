@@ -25,7 +25,7 @@ function config($stateProvider, $urlRouterProvider) {
           state('search', {
           url:'/search',
           templateUrl: 'views/search.html',
-          controller: 'SearchCtrl'
+          controller: 'SearchCtrl',
         }).
           state('success', {
           url:'/success',
@@ -44,17 +44,18 @@ function config($stateProvider, $urlRouterProvider) {
         })  
        }   
 
-function run ($timeout,$http,$rootScope,$localStorage,$location,$transitions) { 
+function run ($timeout,$http,$rootScope,$localStorage,$location,$transitions,$state) { 
         $rootScope.$on($transitions.onSuccess({to: 'success', from: 'login'}, function() {
          $timeout(function () {
          $location.path("/search")
-        }, 2000);
+
+        }, 1000);
         })
         )
         $rootScope.$on($transitions.onSuccess({to: 'success', from: 'register'}, function() {
         $timeout(function () {
          $location.path("/login")
-        }, 2000);
+        }, 1000);
         })
         )
         $transitions.onStart( { to: 'search' }, function() {
@@ -62,5 +63,6 @@ function run ($timeout,$http,$rootScope,$localStorage,$location,$transitions) {
                 $location.path("/login");
            }
         });
-   }
+
+       }
 })();

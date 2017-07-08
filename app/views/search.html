@@ -1,11 +1,11 @@
 <section class="travelpage"> 
     <h1 >Welcome {{username}}</h1>
     
-    <h2 style="margin-top:10px; color:firebrick;" ><a ng-click="showTravel()" href="">Travel Directory</a>/<a  ng-click="showUser()" href="">User Directory</a></h2>
+    <h2 style="margin-top:10px; color:firebrick;" ><a ng-click="showTravel();compare()" href="">Travel Directory</a>/<a  ng-click="showUser()" href="">User Directory</a></h2>
     <div><p ng-model="message"></p></div>
     
     <form name="myform"
-    ng-submit="searchTravel();searchUsers()">  
+    ng-submit="searchTravel();searchUsers();compare()">  
     <fieldset>
      <input type="search" ng-model="search" name="search" placeholder="Search..." class="ui-autocomplete-input form-control input-lg" autocomplete="off">
     </fieldset>

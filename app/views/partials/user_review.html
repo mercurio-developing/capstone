@@ -18,9 +18,18 @@
                                 </div>
                                 </div>
                                 <div class="col-7">
-                                <img class="stars" src="../images/stars/{{review.rating}}.png" alt="">
+                                <img style="margin-right: 10px"class="stars" src="../images/stars/{{review.rating}}.png" alt="">
+                                <h5>{{review.postedOn |date :  "dd.MM.y"}}</h5>
+
                                 </div>
                                 </div>
                                        
                             </div>
+                        
+                        
+
                         </div>
+
+                        <!-- NEW  REVIEW-->
+
+                        <nav ng-show="showReview" class="cf" ng-include="'views/partials/new_review.html'"></nav>

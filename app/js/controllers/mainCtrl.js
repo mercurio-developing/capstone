@@ -5,16 +5,21 @@
 		.module('app')
 		.controller('MainCtrl', MainCtrl);	
 
-function MainCtrl($state,$scope,$timeout,$location,$localStorage,dataService) {     
+function MainCtrl($state,$scope,$timeout,$location,$localStorage,dataService,$interval) {     
+
+
 
     $scope.logout = function($scope, viewUser) {
           $localStorage.$reset()
           $location.path("/login")
         };	
     
-    $scope.username = $localStorage.user
-    $scope.email = $localStorage.email
-    $scope.user_id = $localStorage.id
+     $interval(function() {
+        $scope.username = $localStorage.user
+        $scope.email = $localStorage.email
+        $scope.user_id = $localStorage.idf          
+    }, 100);
+
 
 
     $scope.profile = function() {
@@ -36,9 +41,9 @@ function MainCtrl($state,$scope,$timeout,$location,$localStorage,dataService) {
     return ($localStorage.token) ? true : false;
     };
 
-    $scope.changeLocation = function(path){
-      $location.path('/' + path)
-      }
-    }
+  
+  }
+
+
 
 })();

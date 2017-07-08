@@ -39,6 +39,36 @@ router.post("/",function(req, res,next) {
 				    }	
                 });
 
+router.post("/new_review/:id", function(req,res,next){
+
+		var date = new Date().toISOString().//date to string using ISO standard
+            replace(/T/, ' ').      // replace T with a space
+            replace(/\..+/, '');   // delete the dot and everything after
+            date = date.substr(0,10); //and use only 10 character and delete the rest
+		
+		User.findById(req.params.id,function(err, user){
+		var	userId = user
+		console.log(req.body[0])
+		const review = new Review({
+			user: userId,
+			passenger : req.body[0].creator,
+			description: req.body[0].description,
+			rating:Number(req.body[0].rating),
+			postedOn : date
+		})
+		console.log(review)
+		review.save(function(err, newReview){
+   	  			if(err) {
+   	  				err.status = 400;
+   	  				return next(err)
+   	  			}
+   	  			res.status = 201;
+   	  			res.send(newReview)
+   	  		});
+		});
+	});
+
+
 router.route("/profile/:id")
       .get(function(req, res, next){
 				

@@ -1,0 +1,47 @@
+         
+          <div class="container">
+          	<div class="row">
+          		<form ng-submit="newReview()"role="form" id="contact-form" class="contact-form">
+                    <div class="row">
+                		<div class="col-md-6">
+                  		<div class="form-group">
+                            <input type="text" class="form-control" name="Name" autocomplete="off" id="Name" value="{{username}}" placeholder="Name">
+                  		</div>
+                  	</div>
+                    	<div class="col-md-3">
+                  		<div class="form-group">
+                            <input type="email" class="form-control" name="email" autocomplete="off" id="email" value="{{email}}" placeholder="E-mail">
+                  		</div>
+                  	</div>
+                      <div class="col-md-3">
+                                            <label for="">Rating</label>
+
+                      <div class="form-group">
+                     <select name="rating" style="padding-bottom: 5px; padding-left:20px;" ; ng-model="reviews.rating">
+                       
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+
+                      </select>
+                        </div>
+                    </div>
+                  	</div>
+                  	<div class="row">
+                  		<div class="col-md-12">
+                  		<div class="form-group">
+                            <textarea ng-model="reviews.description" class="form-control textarea" rows="3" name="description" id="Message" placeholder="Message"></textarea>
+                  		</div>
+                  	</div>
+                     
+                    </div>
+                    <div class="row">
+                    <div class="col-md-12">
+                  <button type="submit" class="btn main-btn pull-right">Send a message</button>
+                  </div>
+                  </div>
+                </form>
+            	</div>
+            </div>
