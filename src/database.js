@@ -8,7 +8,7 @@ var data     = require('./data/data.json');
 
 var seeder = require('mongoose-seeder');
  
-mongoose.connect('mongodb://localhost/easy-travel', function(err) {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/easy-travel', function(err) {
   if (err) {
     console.log('Failed connecting to MongoDB!');
   } else {
