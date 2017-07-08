@@ -18,6 +18,9 @@ var googleRoutes   = require('./routes/api/google.search');
 var weatherRoutes  = require('./routes/api/weather');
 var yelpRoutes     = require('./routes/api/yelp');
 
+var port = process.env.PORT || 8080;
+
+
 
 var app = express();
 
@@ -41,6 +44,6 @@ app.use('/api/yelp'   , yelpRoutes);
 
 
 
-app.listen(3000, function() {
-    console.log("The server is running on port 3000!");
+app.listen(port, function() {
+    console.log("The server is running on port" + port);
 });
