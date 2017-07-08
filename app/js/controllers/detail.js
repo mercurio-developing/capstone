@@ -13,6 +13,7 @@ function DetailCtrl($scope,dataService,$location,$localStorage) {
 
     var id = $location.url().split('/')[2];
         dataService.getTravelId(id,function (response) {
+            console.log(response)
         $scope.travel = response.data
         $scope.longitud = response.data.longitud
         $scope.latitud = response.data.latitud

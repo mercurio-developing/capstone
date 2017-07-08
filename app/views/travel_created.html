@@ -17,10 +17,10 @@
         
       <div map-lazy-load="https://maps.google.com/maps/api/js"
         map-lazy-load-params="{{googleMapsUrl}}">
-          <ng-map zoom="12" center="current-location">
+          <ng-map zoom="12">
             <directions
-              origin = "{{origin}}"
-              destination="{{destination}}"
+              origin = "{{travel.origin}}"
+              destination="{{travel.destination}}"
               draggable="true"
               travel-mode="DRIVING"
              >
