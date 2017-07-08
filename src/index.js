@@ -6,7 +6,6 @@ var path = require('path');
 var jwt = require("jsonwebtoken");
 const jwtExpress = require("express-jwt");
 const secretKey = "ale"
-var cors = require('cors')
 
 var Travel   = require('./models/travel');
 var User 	 = require("./models/user");

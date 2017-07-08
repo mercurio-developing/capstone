@@ -4,7 +4,7 @@
   "description": "Final Proyect",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon src/index.js"
+    "start": "node src/index.js"
   },
   "author": "Alejandro Fidanza",
   "license": "MIT",
@@ -39,7 +39,6 @@
   },
   "devDependencies": {
     "@google/maps": "^0.4.1",
-    "cors": "^2.8.3",
     "jsonwebtoken": "^7.4.1",
     "mongoose-seeder": "^1.2.1",
     "path": "^0.12.7"
