@@ -10,10 +10,14 @@ function MainCtrl($state,$scope,$timeout,$location,$localStorage,dataService,$in
     
   $scope.back = "main-back"
 
-  $scope.change = function(){
+  $scope.changeOff = function(){
       if($scope.back === "main-back"){
         $scope.back = ""
-      } else {
+      }
+    }
+
+      $scope.changeOn = function(){
+      if($scope.back != "main-back"){
         $scope.back = "main-back"
       }
     }

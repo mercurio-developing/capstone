@@ -7,12 +7,12 @@
   
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-    <a ng-show="!isLoggedIn()" ng-href="#!/login">Login</a>
+    <a ng-show="!isLoggedIn()" ng-href="#!/login" >Login</a>
 	  <a ng-show="!isLoggedIn()" ng-href="#!/register">Register</a>
-    <a ng-show="isLoggedIn()" ng-href="#!/search">Search</a>
-    <a ng-show="isLoggedIn()" ng-href="#!/new_travel">New Travel</a>
-    <a ng-show="isLoggedIn()" ng-href="#!/user_detail/{{user_id}}" ng-click="profile()">My Profile</a>
-    <a ng-show="isLoggedIn()" ng-href="#!/login" ng-click="logout();change();">Logout</a>
+    <a ng-show="isLoggedIn()" ng-href="#!/search" ng-click="changeOn()">Search</a>
+    <a ng-show="isLoggedIn()" ng-href="#!/new_travel" ng-click="changeOff()">New Travel</a>
+    <a ng-show="isLoggedIn()" ng-href="#!/user_detail/{{user_id}}" ng-click="profile();changeOn()">My Profile</a>
+    <a ng-show="isLoggedIn()" ng-href="#!/login" ng-click="logout();changeOn();">Logout</a>
 
     </div>
   </div>
