@@ -2,21 +2,31 @@
     <article>
             <div class="search-result row" ng-show="checkboxes.Travels" ng-repeat="travel in travels | filter : {origin:search}"  ng-if="travel.passengers != travel.userPassenger.length">
 
-              <div class="col-xs-12 col-sm-12 col-md-2">
-                <a title="{{travel.title}}"><img src="https://placeimg.com/640/480/people" alt="Lorem ipsum" /></a>
+              <div class="col-xs-12 col-sm-12 col-md">
+                <a title="{{travel.title}}"><img style="margin-left:20px;" src="https://placeimg.com/640/480/people" alt="Lorem ipsum" /></a>
+                <h2 style="padding-left: 5px">{{travel.creator.firstName}} {{travel.creator.lastName}}</h2>
               </div>
 
-              <div class="col-xs-12 col-sm-12 col-md-10 ">
-                    <h4>{{travel.origin}} to {{travel.destination}}</h4>
+              <div style="background-color: lightgrey;padding-top: 20px;" class="col-xs-12 col-sm-12 col-md-10 ">
+                    <h2>{{travel.origin}} to {{travel.destination}}</h2>
                 <div class='col-lg-12'>
                    <div class="row">
-                    <div  class="time col-xs-4 col-sm-4 col-md-3"><img  src="images/time.svg" alt="">{{travel.estimatedTime}}</div>
-                    <div class="day col-xs-4 col-sm-4 col-md-3 "><img  src="images/calendar.svg" alt=""> 
-                   {{travel.departureDate | date:'yyyy-MM-dd'}}</div>
-                    </div>                  
-                   <div class="row descr col-xs-12 col-sm-12 col-md-12 ">
-                   Description:{{travel.description}}
+                    <div  class="time col-xs-4 col-sm-4 col-md-3">
+                    <h6>
+                    <img  src="images/time.svg" alt="">
+                    {{travel.estimatedTime}} 
+                    </h6>
+                    </div>
+                    <div class="day col-xs-4 col-sm-4 col-md-3 ">
+                    <h6>
+                    <img  src="images/calendar.svg" alt=""> 
+                   {{travel.departureDate | date:'yyyy-MM-dd'}}
+                   </h6>
                    </div>
+                    </div>  
+                    <div class="row descr col-xs-12 col-sm-12 col-md-12 ">
+                   <h5>Passengers:{{travel.userPassenger.length}} of {{travel.passengers}}</h5>
+                   </div>               
                 </div>
                 <div class="row">
                 <a type="button" class="btn btn-secondary btn-xs" ng-href="#!/search/{{travel._id}}" ng-click="searchTravelId(id)" >Details</a>
@@ -24,20 +34,32 @@
             </div>
         </div> 
         <div class="search-result row" ng-show="checkboxes.MyTravels" ng-repeat="travel in travels | filter : {origin:search}" ng-if="travel.creator._id == user_id">
-              <div class="col-xs-12 col-sm-12 col-md-2">
-                <a title="{{travel.title}}"><img src="https://placeimg.com/640/480/people" alt="Lorem ipsum" /></a>
+             
+              <div class="col-xs-12 col-sm-12 col-md">
+                <a title="{{travel.title}}"><img style="margin-left:20px;" src="https://placeimg.com/640/480/people" alt="Lorem ipsum" /></a>
+                <h2 style="padding-left: 5px">{{travel.creator.firstName}} {{travel.creator.lastName}}</h2>
               </div>
-              <div class="col-xs-12 col-sm-12 col-md-10 ">
-                    <h4>{{travel.origin}} to {{travel.destination}}</h4>
+
+              <div style="background-color: lightgrey;padding-top: 20px;" class="col-xs-12 col-sm-12 col-md-10 ">
+                    <h2>{{travel.origin}} to {{travel.destination}}</h2>
                 <div class='col-lg-12'>
                    <div class="row">
-                    <div  class="time col-xs-4 col-sm-4 col-md-3"><img  src="images/time.svg" alt="">{{travel.estimatedTime}}</div>
-                    <div class="day col-xs-4 col-sm-4 col-md-3 "><img  src="images/calendar.svg" alt=""> 
-                   {{travel.departureDate | date:'yyyy-MM-dd'}}</div>
-                    </div>                  
-                   <div class="row descr col-xs-12 col-sm-12 col-md-12 ">
-                   Description:{{travel.description}}
+                    <div  class="time col-xs-4 col-sm-4 col-md-3">
+                    <h6>
+                    <img  src="images/time.svg" alt="">
+                    {{travel.estimatedTime}} 
+                    </h6>
+                    </div>
+                    <div class="day col-xs-4 col-sm-4 col-md-3 ">
+                    <h6>
+                    <img  src="images/calendar.svg" alt=""> 
+                   {{travel.departureDate | date:'yyyy-MM-dd'}}
+                   </h6>
                    </div>
+                    </div>
+                    <div class="row descr col-xs-12 col-sm-12 col-md-12 ">
+                   <h5>Passengers:{{travel.userPassenger.length}} of {{travel.passengers}}</h5>
+                   </div>                  
                 </div>
                 <div class="row">
                 <a type="button" class="btn btn-secondary btn-xs" ng-href="#!/search/{{travel._id}}" ng-click="searchTravelId(id)" >Details</a>

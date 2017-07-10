@@ -15,7 +15,7 @@ function NewTravelCtrl(NgMap,$scope,dataService,$localStorage,$http,$state,$loca
         $scope.changeClass = function(){
            var clientWidth = document.documentElement.clientWidth;
 
-        if ($scope.class === "col-9" ){
+        if ($scope.class === "col-8" ){
             if (clientWidth < 1068) {
              $scope.class = "col-12";
             } else {
@@ -24,7 +24,7 @@ function NewTravelCtrl(NgMap,$scope,dataService,$localStorage,$http,$state,$loca
           $scope.show = true;
           $scope.textButton = "Less details.."
         }else {
-          $scope.class = "col-9";
+          $scope.class = "col-8";
           $scope.show = false;
           $scope.textButton = "More details.."
          };

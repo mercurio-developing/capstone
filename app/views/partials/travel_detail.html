@@ -2,54 +2,50 @@
 
                             <div class="row">
                                 <div class="col-md-6">
-                                    <h2> 
+                                <div class="form-group">
                                         <label class="control-label" for="name">Driver's Name:
-                                        <h1 style="font-size:40px">{{travel.creator.firstName}} {{travel.creator.lastName}}</h1>
+                                        <h4>{{travel.creator.firstName}} {{travel.creator.lastName}}</h4>
                                         </label> 
-                                    <h2>
+                                    </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                       <h2> 
                                         <label class="control-label" for="name">Driver's Email:
-                                        <h1 style="font-size:40px">{{travel.creator.email}}</h1> 
+                                        <h4>{{travel.creator.email}}</h4> 
                                         </label> 
-                                        <h2>
                                     </div>
                                 </div>
                                 <!-- Text input-->
                                 <div class="col-md-6">
                                     <div  class="form-group">
-                                        <h2> 
                                         <label class="control-label" for="date">Departure Date:
-                                        <h2>{{travel.departureDate}}</h2>                                     
-                                        </label> 
+                                        <h4>{{travel.departureDate}}</h4>                            </label> 
                                         <h2>
                                     </div>
                                 </div>
                                 <!-- Select Basic -->
                                 <div class="col-md-6">
-                                    <div  class="form-group">                          <h2> 
-                                        <label class="control-label" for="time">Departure Time:
-                                        <h2>{{travel.departureTime}}</h2></label>
-                                        <h2>
-
+                                    <div  class="form-group">              
+                                    <label class="control-label" for="time">Departure Time:
+                                        <h4>{{travel.departureTime}}</h4>
+                                    </label>
                                     </div>
                                 </div>
                                 <!-- Select Basic -->
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="control-label" for="appointmentfor">Total Number of Seats</label>
-                                        <h2> {{availableSeats}} of {{travel.passengers}}</h2>
+                                        <h4> {{availableSeats}} of {{travel.passengers}}</h4>
                                     </div>
                                     <div> 
                                     <button ng-hide="hideButton" class="btn-success" style="margin-top: 50px;padding: 5px 10px 5px 10px;" ng-click="takeSeat()">Take a Seat!</button>
                                     <h1 style="color:red" ng-hide="!hideButton">TRAVEL CLOSED</h1>
                                  </div> 
                                 </div>
-
+                                <div class="form-group">
                                  <div  class="col-6" style="padding-left:0px;">
-                                    <label style="padding-left:0px;margin-bottom: 50px">Travel Plan:<h2>{{travel.description}}</h2></label>
+                                    <label style="padding-left:0px;margin-bottom: 50px">Travel Plan:<h4>{{travel.description}}</h4></label>
                                   </div>
+                                </div>
                             </div>
 

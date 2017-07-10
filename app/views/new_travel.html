@@ -26,11 +26,11 @@
     </form>
   </div>
     <!--TRAVEL DETAILS-->
-        <div class="col-9" ng-class="class" style="margin-left: 25px">  
+        <div class="col-8" ng-class="class" style="margin-left: 25px">  
           <div ng-show="destination && origin">
                             
-                            <h4>{{titleOrig}} to {{titleDest}}</h4>
-                            <h5>Duration:{{duration}}</h4>
+                            <h1>{{titleOrig}} to {{titleDest}}</h1>
+                            <h1>Duration:{{duration}}</h1>
 
                     </div>
                         <form  ng-submit="createTravel()">
@@ -91,7 +91,7 @@
                 <!--TRAVEL WEATHER-->
 
         <div class="col-2" style="margin:20px 0px 20px 50px; padding-left: 20px;height: 150px"> 
-            <h2 style="margin:20px 20px 20px 20px;"">WEATHER</h2>
+            <h1 style="margin:20px 20px 20px 20px;"">WEATHER</h1>
                 <h5 style="width: 200px"> For next few days!</h5>
             <form ng-submit="searchWeather()" name="myform">
                 <fieldset>
