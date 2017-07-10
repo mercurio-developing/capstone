@@ -8,7 +8,7 @@
                                     </fieldset>
                                 </form>
 
-                                <div  ng-show="show" ng-model="today">
+                            <div  ng-show="show" style="margin-left: 50px" ng-model="today">
                                 <h4 style="margin-top: 30px" class="feature-title"> TODAY! </h4>
                                 <div class="feature-content">
                                    <img class="weather-today" src="../images/weather/{{today.icon}}.png" alt="">
@@ -17,18 +17,24 @@
                                 <p>Summary:{{today.summary}}</p>
                                 </div>
                             </div>
+
+                        </div>
+ 
+                        
+                    <div class="row" style="margin-top:50px;height:200px" >
+   
+                         <div class="col-2" ng-repeat="temperature in temperatures" ng-if="$index > 1" style="margin-left:10px; width: 70px" >
+                                <div ng-show="{{show}}">
+                                    <h6 style="font-size:14px margin-top: 50px" class="feature-title"> <br><span style="font-size:12px">Date : {{temperature.time * 1000 | date:'MM-dd-yyyy'}}</span><br></h4>
+                                    <div class="feature-content">
+                                          <img class="weather-icon" src="../images/weather/{{temperature.icon}}.png" alt="">
+                                          <p style="font-size:12px">Max:{{temperature.temperatureMax}}°F</p>
+                                          <p style="font-size:12px">Min:{{today.temperatureMin}}°F</p>
+                                    </div>   
+                            
+                                </div>
                            
                             </div>
-                         <div class="row" style="margin-top:50px;height:200px" >
-   
-                           <div class="col-2" ng-repeat="temperature in temperatures" ng-if="$index > 1" style="margin-left:10px; width: 70px" >
-                                <div ng-show="{{show}}">
-                                <h6 style="font-size:14px margin-top: 50px" class="feature-title"> <br><span style="font-size:12px">Date : {{temperature.time * 1000 | date:'MM-dd-yyyy'}}</span><br></h4>
-                                <div class="feature-content">
-                                  <img class="weather-icon" src="../images/weather/{{temperature.icon}}.png" alt="">
-                                  <p style="font-size:12px">Max:{{temperature.temperatureMax}}°F</p>
-                                  <p style="font-size:12px">Min:{{today.temperatureMin}}°F</p>
-                                </div>   
-                                </div>
-                            </div>
-                        </div>
+                            
+                    </div>
+                        

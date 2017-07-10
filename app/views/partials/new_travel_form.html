@@ -1,0 +1,57 @@
+<div ng-show="destination && origin">
+                            
+                            <h4>{{titleOrig}} to {{titleDest}}</h4>
+                            <h5>Duration:{{duration}}</h4>
+
+                    </div>
+                        <form  ng-submit="createTravel()">
+                            <fieldset>
+                            <!-- Form start -->
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label" for="name">Driver's Name</label> 
+                                        <input   id="name" name="username" type="text" placeholder="Name" value="{{username}}" ng-disabled="true" class="form-control">
+                                    </div>
+                                </div>
+                                <!-- Text input-->
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label" for="email" >Driver's Email</label>
+                                        <input id="email" name="email" type="email" value={{email}}  ng-disabled="true" placeholder="E-Mail" class="form-control">
+                                    </div>
+                                </div>
+                                <!-- Text input-->
+                                <div class="col-md-6">
+                                    <div  class="form-group">
+                                        <label class="control-label" for="date">What day do you want to leave?</label>
+                                        <input  style="margin-height:50px; height:50px" ng-model="data.date" type="date" id="date" name="date" type="text" placeholder="Preferred Date" class="form-control input-md" ng-required="true">
+                                    </div>
+                                </div>
+                                <!-- Select Basic -->
+                                <div class="col-md-5">
+                                    <div  class="form-group">
+                                        <label class="control-label" for="time">What time would you like to leave?</label>
+                                        <input  type="time" ng-model="data.time" name="time" ng-required="true">
+                                    </div>
+                                </div>
+                                <!-- Select Basic -->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label" for="appointmentfor">How many seats are available?</label>
+                                        <select style="width: 100px" ng-model="data.passengers" form-control" ng-required="true">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                        </select>
+                                    </div>
+                                    <label>What's your travel plan?</label>
+                                    <div>
+                                        <input  style="padding:0px 0px 150px 10px; width: 400px" ng-model="data.description" placeholder="Enter description here.." name="comment" form="myform" ng-required="true"></div>
+                                </div>
+                                
+                                </fieldset>
+                                 <button style="margin:20px 5px 0px 30px; padding:10px 20px 10px 20px" ng-disabled="!buttonsEnabled" type="submit" class="btn">Let's Go!</button>
+                                <!-- Button -->
+                            </form>

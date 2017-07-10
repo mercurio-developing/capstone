@@ -5,10 +5,11 @@
         .module('app')
         .controller('SearchCtrl', SearchCtrl);  
 
-function SearchCtrl($interval,$scope,dataService,$localStorage,$http,$location) {
+function SearchCtrl($filter,$interval,$scope,dataService,$localStorage,$http,$location) {
 
     $scope.showTravels = false;
     $scope.showUsers = false;
+    $scope.showSearch = false
 
     $interval(function() {
         $scope.username = $localStorage.user
@@ -19,9 +20,12 @@ function SearchCtrl($interval,$scope,dataService,$localStorage,$http,$location) 
     $scope.showTravel = function(){
      if ($scope.showTravels === false){
         $scope.showUsers = false;
-        $scope.showTravels = true
+        $scope.showTravels = true;
+            $scope.showSearch = true;
+
     } else {
             $scope.showTravels = false;
+                $scope.showSearch = false
          }
         }
 
@@ -29,8 +33,11 @@ function SearchCtrl($interval,$scope,dataService,$localStorage,$http,$location) 
      if ($scope.showUsers === false){
         $scope.showTravels = false;
         $scope.showUsers = true;
+            $scope.showSearch = true;
     } else {
-            $scope.showUsers = false;  
+            $scope.showUsers = false;
+                $scope.showSearch = false
+  
          }
         }  
 
@@ -44,13 +51,17 @@ function SearchCtrl($interval,$scope,dataService,$localStorage,$http,$location) 
           });
         }
         
-    $scope.username = $localStorage.user
-        dataService.getTravels(function (response) {
+        $scope.username = $localStorage.user
+        
+    dataService.getTravels(function (response) {
         $scope.travels = response.data
+        console.log(response.data)
+        // var filterId = $filter('filter')($scope.travels, {: "57029ed4795118be119cc437"})
         }); 
         
-        dataService.getUsers(function(response){
+    dataService.getUsers(function(response){
         $scope.users = response.data
+        $scope.lengthUser = response.data.length
         });
       }
 

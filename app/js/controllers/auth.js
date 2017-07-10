@@ -12,14 +12,13 @@ function AuthCtrl($timeout,$scope,dataService,$location, $localStorage,
   var userData = new Array();
 
   $scope.newUser = function (user) {  
-      console.log(user)  
      var user = $scope.user                      
      dataService.postUser(user, function (response) {
        $location.path("/success");      
      }, errorHandler);            
     }  
   
-  $scope.login = function(user) {
+  $scope.login = function(user,back) {
         user = $scope.user
         dataService.loginUser(user, function (response) {
         $localStorage.token = response.data.token 

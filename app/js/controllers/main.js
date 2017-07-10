@@ -7,9 +7,18 @@
 
 function MainCtrl($state,$scope,$timeout,$location,$localStorage,dataService,$interval) {     
     $scope.googleMapsUrl="https://maps.googleapis.com/maps/api/js?key=AIzaSyCloG6KeNWUu9OJyKFHoskqT_1hG14fgtE"
-
     
-    $scope.logout = function($scope, viewUser) {
+  $scope.back = "main-back"
+
+  $scope.change = function(){
+      if($scope.back === "main-back"){
+        $scope.back = ""
+      } else {
+        $scope.back = "main-back"
+      }
+    }
+
+     $scope.logout = function($scope, viewUser,back) {
           $localStorage.$reset()
           $location.path("/login")
         };	

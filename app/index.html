@@ -1,27 +1,31 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app="app" ng-controller="MainCtrl">
 <head>
   <meta charset="UTF-8">
   <title>Easy Travel</title>
   <meta name="viewport" content="width=device-width, user-scalable=no">
     
-    <link href='https://fonts.googleapis.com/css?family=Lato:400,100,700,900' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Ranchers|Ribeye" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <link rel="stylesheet" href="js/lib/angular-google-places-autocomplete/src/autocomplete.css">
-    <link href='/css/style.css' rel='stylesheet' type='text/css'>
+    
+    <!-- style -->
+
+    <link href='/css/normalize.css' rel='stylesheet' type='text/css'>
+    <link href='/css/custom.css' rel='stylesheet' type='text/css'>
 
 
     
   </head>
   
-  <body  ng-app="app" ng-controller="MainCtrl">
+  <body  ng-class="back" >
      
   <header>
     <nav class="cf" ng-include="'views/nav.html'"></nav>
   </header>
    
     <div class="page">
-       <main class="cf" ui-view>
+       <main  ui-view>
        </main>
     </div>
 

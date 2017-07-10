@@ -1,58 +1,48 @@
 <div class="container">
     <div class="row clearfix well">
-		<div class="col-md-2 column">
-			<img class="img-thumbnail" alt="140x140" src="http://lorempixel.com/140/140/" />
+		<div class="col-md-2" style="margin-top: 40px;">
+			<img  src="http://lorempixel.com/140/140/" />
 		</div>
-		<div class="col-md-8 column">
-			<blockquote>
-				<h1>Name:{{user.firstName}} {{user.lastName}}</h1>					
-				</p>
-				<h2>
-					email {{user.email}}
-				</h2>
-				<h2>
-					User ID:{{user._id}}
-				</h2>
-
-			</blockquote>
-		</div>
-		<div class="col-md-2 column">
-		         
-		 
-		</div>
-	</div>
-	<div class="row clearfix">
-		<div class="col-md-12 column">
-			<div class="tabbable" id="tabs-444468">
-				<ul class="nav nav-tabs">
-					<li class="active">
-						<h1><a href="" ng-click="showReviews()" data-toggle="tab">Reviews</a></h1>
-					</li>
-					<li>
-						<h1><a style="margin-left: 20px" href="" ng-click="showTravels()" ng-click="showTravels" data-toggle="tab">Travels</a></h1>
-					</li>
-				</ul>
-				<div class="tab-content">
-					<div class="tab-pane active" id="panel-200304">
-						 <div class="row clearfix">
-                
-                	<div class="col-md-8 column">
-                
-                    <!-- Reviews -->
-                    <nav class="cf" ng-include="'views/partials/user_review.html'"></nav>
-                   
-                    <!-- Travels -->
-                   
-                    <nav class="cf" ng-include="'views/partials/user_travel_created.html'"></nav>
-                   
-                    <!--  Travels Passenger-->
-
-                    <nav class="cf" ng-include="'views/partials/user_travel_incoming.html'"></nav>
-                  </div>
-
-						</div>
-					</div>
-				</div>	
+			<div class="col-md-8" style="margin-top: 20px">
+					<h1 style="margin-bottom: 0px">Name:{{user.firstName}} {{user.lastName}}</h1>					
+					<h4>
+						email {{user.email}}
+					</h4>
+					<h4>
+						User ID:{{user._id}}
+					</h4>
 			</div>
 		</div>
+		<div class="row clearfix">
+			<div class="col-md-12 column">
+				<div class="tabbable" id="tabs-444468">
+					<ul class="nav nav-tabs">
+						<li class="active">
+							<h1><a href="" ng-click="showReviews()" data-toggle="tab">Reviews</a></h1>
+						</li>
+						<li>
+							<h1>
+							<a style="margin-left: 20px" href="" ng-click="showTravels()" ng-click="showTravels" data-toggle="tab">Travels</a>
+							</h1>
+						</li>
+					</ul>
+				<div class="tab-content">
+					<div class="tab-pane active" >
+						<div class="row clearfix">
+		                	<div class="col-md-8 column">
+			                    <!-- Reviews -->
+			                    <nav class="cf" ng-include="'views/partials/user_review.html'">
+			                    </nav>
+			                    <!-- Travels -->
+			                    <nav class="cf" ng-include="'views/partials/user_travel_created.html'">
+			                    </nav>
+			                    <!--  Travels Passenger-->
+			                    <nav class="cf" ng-include="'views/partials/user_travel_incoming.html'"></nav>
+		                    </div>
+	                  	</div>
+					</div>
+				</div>
+			</div>	
+		</div>
 	</div>
+</div>

@@ -48,7 +48,6 @@ function run ($timeout,$http,$rootScope,$localStorage,$location,$transitions,$st
         $rootScope.$on($transitions.onSuccess({to: 'success', from: 'login'}, function() {
          $timeout(function () {
          $location.path("/search")
-
         }, 1000);
         })
         )

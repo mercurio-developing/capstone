@@ -1,24 +1,30 @@
-<section class="card login">
+<div class="container login" > 
+<section class="card success">
   <form name="myform"
-    ng-submit="login();update()"
+    ng-submit="login();update();change();"
     novalidate>
 
-    <div class="textintro">
-      <h1>Hi there!</h1>
-      <p>Please Login..</p>
-      <p class="message" 
-        ng-show="message"></p>
+    <div  ng-show="!isLoggedIn()">
+      <h2>Welcome To</h2>
+      <h1>Easy Travel</h1>
+      <h6>Where Riders and Drivers Meet the Open Road...</h3>
+      <p ng-show="message"></p>
     </div>
 
-    <fieldset>
-      <input type="email" name="email" placeholder="Email"
+    <div class="textintro" ng-show="isLoggedIn()">
+      <h1>Hi {{username}}!</h1>
+      <h5>you are already login!..</h5>
+    </div>
+
+    <fieldset ng-show="!isLoggedIn()">
+      <input  ng-init=" " type="email" name="email" placeholder="Email"
        ng-model="user.email" ng-required="true">
       <p class="error validationerror"
       ng-show="myform.email.$invalid && myform.email.$touched">
       Must be a valid email</p>
 
 
-      <input type="password" name="password" placeholder="Password"
+      <input ng-init=" " type="password" name="password" placeholder="Password"
       ng-model="user.password" ng-required="true">
       <p class="error validationerror"
       ng-show="myform.password.$invalid && myform.email.$touched">
@@ -27,8 +33,9 @@
     </fieldset>
     <div my-map=""></div>
 
-    <button type="submit" class="btn"
+    <button ng-show="!isLoggedIn()" type="submit" class="btn"
       ng-disabled="myform.$invalid">Login</button>
-    <p>or <a ng-href="#!/register">register</a></p>
+    <p ng-show="!isLoggedIn()">or <a ng-href="#!/register">register</a></p>
   </form>
 </section>
+</div>

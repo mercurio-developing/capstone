@@ -1,6 +1,6 @@
 <section class="newtravel">
     
-    <div class="row">
+<div class="row">
 
   <div class="col-11" style="margin:30px 25px 10px 25px">
       <!-- MAP -->
@@ -27,73 +27,45 @@
   </div>
     <!--TRAVEL DETAILS-->
         <div class="col-9" ng-class="class" style="margin-left: 25px">  
-            <div class="container"> 
-<!--              <nav class="cf" ng-include="'views/partials/new_travel_form.html'">
- -->               
-                 <div ng-show="destination && origin">
-                            
-                            <h4>{{titleOrig}} to {{titleDest}}</h4>
-                            <h5>Duration:{{duration}}</h4>
+            <nav class="cf" ng-include="'views/partials/new_travel_form.html'"></nav>
+        </div>
 
-                    </div>
-                        <form  ng-submit="createTravel()">
-                            <fieldset>
-                            <!-- Form start -->
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label" for="name">Driver's Name</label> 
-                                        <input   id="name" name="username" type="text" placeholder="Name" value="{{username}}" ng-disabled="true" class="form-control" input-md">
-                                    </div>
-                                </div>
-                                <!-- Text input-->
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label" for="email" >Driver's Email</label>
-                                        <input id="email" name="email" type="email" value={{email}}  ng-disabled="true" placeholder="E-Mail" class="form-control input-md">
-                                    </div>
-                                </div>
-                                <!-- Text input-->
-                                <div class="col-md-6">
-                                    <div  class="form-group">
-                                        <label class="control-label" for="date">What day do you want to leave?</label>
-                                        <input  style="margin-height:50px; height:50px" ng-model="data.date" type="date" id="date" name="date" type="text" placeholder="Preferred Date" class="form-control input-md" ng-required="true">
-                                    </div>
-                                </div>
-                                <!-- Select Basic -->
-                                <div class="col-md-6">
-                                    <div  class="form-group">
-                                        <label class="control-label" for="time">What time would you like to leave?</label>
-                                        <input  type="time" ng-model="data.time" name="time" ng-required="true">
-                                    </div>
-                                </div>
-                                <!-- Select Basic -->
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label" for="appointmentfor">How many seats are available?</label>
-                                        <select style="width: 100px" ng-model="data.passengers" form-control" ng-required="true">
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                        </select>
-                                    </div>
-                                    <label>What's your travel plan?</label>
-                                    <div>
-                                        <input  style="padding:0px 0px 150px 10px; width: 400px" ng-model="data.description" placeholder="Enter description here.." name="comment" form="myform" ng-required="true"></div>
-                                </div>
-                                
-                                </fieldset>
-                                 <button style="margin:20px 5px 0px 30px; padding:10px 20px 10px 20px" ng-disabled="!buttonsEnabled" type="submit" class="btn">Let's Go!</button>
-                                <!-- Button -->
-                        </form>
-                        <!-- form end -->  
-                 </nav>
-            </div>
-        </div>   
+            <!-- form end -->  
+                
+                <!--TRAVEL WEATHER-->
 
-    <!--TRAVEL WEATHER-->
-        <nav class="cf" ng-include="'views/partials/new_travel_weather.html'"></nav>
-       
+        <div class="col-2" style="margin:20px 0px 20px 50px; padding-left: 20px;height: 150px"> 
+            <h2 style="margin:20px 20px 20px 20px;"">WEATHER</h2>
+                <h5 style="width: 200px"> For next few days!</h5>
+            <form ng-submit="searchWeather()" name="myform">
+                <fieldset>
+                    <input ng-show="weather" type="text" name="longitud" ng-model="weather">
+                    <button style="margin: 10px 20px 30px 20px;" type="submit" class="btn" ng-disabled="!buttonsEnabled" >{{textButton}} </button>
+                </fieldset>
+            </form>
+                <div  ng-show="show" style="margin-left: 50px" ng-model="today">
+                 <h4 style="margin-top: 30px" class="feature-title"> TODAY! </h4>
+                  <div class="feature-content">
+                       <img class="weather-today" src="../images/weather/{{today.icon}}.png" alt="">
+                       <p>MAX:{{today.temperatureMax}} °F</p>
+                       <p>MIN:{{today.temperatureMin}} °F</p>
+                       <p>Summary:{{today.summary}}</p>
+                       </div>
+                   </div>
+                </div>
+            
+             <div class="row" style="margin-top:50px;height:200px" >
+                <div class="col-2" ng-repeat="temperature in temperatures" ng-if="$index > 1" style="margin-left:10px; width: 70px" >
+                    <div ng-show="{{show}}">
+                    <h6 style="font-size:14px margin-top: 50px" class="feature-title"> <br><span style="font-size:12px">Date : {{temperature.time * 1000 | date:'MM-dd-yyyy'}}</span><br></h4>
+                    <div class="feature-content">
+                    <img class="weather-icon" src="../images/weather/{{temperature.icon}}.png" alt="">
+                    <p style="font-size:12px">Max:{{temperature.temperatureMax}}°F</p>
+                    <p style="font-size:12px">Min:{{today.temperatureMin}}°F</p>
+                 </div>   
+               </div>
+            </div> 
+        </div>    
+    <!-- END of main row -->
     </div>
 </section>

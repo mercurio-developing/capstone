@@ -1,14 +1,12 @@
-                      <div class="row">
-                          <div style="margin-top: 50px" class="col-sm-9">
+                  <div class="row">
+                      <div style="margin-top: 50px" class="col-sm-8">
                             
                             <div >
                                 <h1>WEATHER</h1>
                                 <h2> Over the next few days!</h2>
                                 <button ng-click="searchWeather()" class="btn" >SHOW DETAILS! </button>
                             </div>
-                              
-
-                            <div ng-show="show">
+                        <div ng-show="show">
                                 <h4 style="margin-top: 20px" class="feature-title"> TODAY! </h4>
                                 <div class="feature-content">
                                    <img class="weather-today" src="../images/weather/{{today.icon}}.png" alt="">
@@ -18,10 +16,10 @@
                                 </div>
                             </div>
                             
-                            <div ng-show="show" class="row">
+                        <div ng-show="show" class="row">
                                 <div class="col-6" ng-repeat="temperature in temperatures" ng-if="$index > 1">
                                 <div>
-                                    <h4 style="font-size:14px"> <br><span s>Date : {{temperature.time * 1000 | date:'MM-dd-yyyy'}}</span><br></h4>
+                                    <h4 style="font-size:14px"> <br><span>Date : {{temperature.time * 1000 | date:'MM-dd-yyyy'}}</span><br></h4>
                                     <div class="feature-content">
                                       <img class="weather-icon" src="../images/weather/{{temperature.icon}}.png" alt="">
                                       <p>Max:{{temperature.temperatureMax}}°F</p>

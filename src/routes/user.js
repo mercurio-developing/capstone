@@ -4,10 +4,9 @@ var express = require("express");
 var router = express.Router();
 var Travel   = require('../models/travel')
 var User 	 = require("../models/user");
-var Review 	 = require("../models/review");// var mid  = require("../middleware")
+var Review 	 = require("../models/review");
 var bcrypt = require('bcryptjs');
 const jwt = require("jsonwebtoken");
-
 
 
 router.route("/register")
@@ -54,6 +53,8 @@ router.route("/register")
 		      return next(err);
 		    }
 		});
+
+
 
 
 router.post("/login",function(req, res,next) {

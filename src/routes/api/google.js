@@ -14,20 +14,14 @@ var googleMapsClient = require('@google/maps').createClient({
 
 router.post("/maps",function(req,res){
 
-console.log(req.body)
 if (Array.isArray([req.body.origin]) === true &&
-	Array.isArray([req.body.destination]) === true ) {
-	console.log("ARRAY")
-	
+	Array.isArray([req.body.destination]) === true ) {	
 	origin = (req.body.origin.formatted_address).toString()
 	destination = (req.body.destination.formatted_address).toString()
-
 } else {
-		console.log("NO ARRAY")
 	origin = req.body.origin
 	destination = req.body.destination
 }
-
 const location = googleMapsClient.directions({
 	origin: origin,
 	destination: destination
