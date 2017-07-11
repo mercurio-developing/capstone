@@ -61,10 +61,8 @@ function userDetailCtrl($state,$scope,dataService,$location,$localStorage,$windo
      	 }
 
    	 function errorHandler(reason) { //error handler function create one scope array for errors
-            $scope.errors = [];
-            for (let err in reason.data.errors) { //when one errorhandler is success this push the reason error inside of the array
-                $scope.errors.push(reason.data.errors[err][0].userMessage);//for give the data necessary to the user
-            }
+           $scope.error = reason.data.error
+              console.log($scope.error)
           }
         }   
 

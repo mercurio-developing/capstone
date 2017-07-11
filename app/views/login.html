@@ -1,7 +1,7 @@
 <div class="container login" > 
 <section class="card success">
   <form name="myform"
-    ng-submit="login();update();change();"
+    ng-submit="login();"
     novalidate>
 
     <div  ng-show="!isLoggedIn()">
@@ -31,8 +31,10 @@
       Password is required</p>
   
     </fieldset>
-    <div my-map=""></div>
-
+     <p class="error" type="hidden"
+     ng-if="myform.$submitted"
+      ng-hide="myform.password.$invalid && myform.email.$touched || myform.email.$invalid && myform.email.$touched">
+      {{error}}</p>
     <button ng-show="!isLoggedIn()" type="submit" class="btn"
       ng-disabled="myform.$invalid">Login</button>
     <p ng-show="!isLoggedIn()">or <a ng-href="#!/register">register</a></p>

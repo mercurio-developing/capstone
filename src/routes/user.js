@@ -65,10 +65,14 @@ router.post("/login",function(req, res,next) {
                 var password = req.body.password		  		
 			    User.authenticate(email, password, function (err, user) {
 			        if (err) {
-			            return next(err);
+			            var err = new Error('User not found');
+			            return res.status(401).json({
+			            error:err.message});
 			        } else if (!user) {
-			            res.status(401);
-			            return res.send();
+			        	var err = new Error('Password incorrect');
+			            return res.status(401).json({
+			            	error:err.message
+			            });
 			        }
 			        var token = user.generateJwt()
 			        return res.status(200).json({

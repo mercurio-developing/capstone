@@ -10,18 +10,6 @@ function MainCtrl($state,$scope,$timeout,$location,$localStorage,dataService,$in
     
   $scope.back = "main-back"
 
-  $scope.changeOff = function(){
-      if($scope.back === "main-back"){
-        $scope.back = ""
-      }
-    }
-
-      $scope.changeOn = function(){
-      if($scope.back != "main-back"){
-        $scope.back = "main-back"
-      }
-    }
-
      $scope.logout = function($scope, viewUser,back) {
           $localStorage.$reset()
           $location.path("/login")
