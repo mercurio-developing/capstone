@@ -1,30 +1,30 @@
-                    <div ng-show="showReview" class="col-md-10">
-                            <div class="row review-card" ng-repeat="review in reviews">
-                            <div class="col-2">
-                                <img class="business" src="http://lorempixel.com/140/140/" alt=""/>
-                                <div style="margin-top: 10px"><img class="stars" src="../images/stars/{{review.rating}}.png" alt=""></div>
-                                
-                            </div>
-                            <div class="col-8 card">
-                                <div class="row">
-                                <h5 class="card-title">{{review.passenger[0].firstName}} {{review.passenger[0].lastName}}</h5>
-                                </div>
-                                <div class="row">
-                               		<a href="">{{review.passenger[0].email}}</a>
-                                 </div>
-                                <div class="row">
-                                 </div>
-                                <div class="row">
-                                    <label><h5>Review:</h5></label>
-                                    <span>{{review.description}} </span>       
-                                    </div>
-                                <div class="row" style="padding-left: 300px; color:black;">
-                                    {{review.postedOn | date : "dd.MM.y" }}
-                                </div>
-                                       
-                            </div>
-                    </div>
+	<div ng-show="showReview" class="col-md-10">
+		<div class="row review-card" ng-repeat="review in reviews">
+			<div class="col-2">
+				<img class="business" src="http://lorempixel.com/140/140/" alt=""/>
+				<div style="margin-top: 10px"><img class="stars" src="../images/stars/{{review.rating}}.png" alt=""></div>
+				
+			</div>
+			<div class="col-8 card">
+				<div class="row">
+				<h5 class="card-title">{{review.passenger[0].firstName}} {{review.passenger[0].lastName}}</h5>
+				</div>
+				<div class="row">
+					<a href="">{{review.passenger[0].email}}</a>
+				 </div>
+				<div class="row">
+				 </div>
+				<div class="row">
+					<label><h5>Review:</h5></label>
+					<span>{{review.description}} </span>       
+					</div>
+				<div class="row" style="padding-left: 300px; color:black;">
+					{{review.postedOn | date : "dd.MM.y" }}
+				</div>
+					   
+			</div>
+	</div>
+	<!-- NEW  REVIEW-->
+			<nav ng-show="showReview" class="cf" ng-include="'views/partials/new_review.html'"></nav>
+	</div>
 
-                        <!-- NEW  REVIEW-->
-
-                        <nav ng-show="showReview" class="cf" ng-include="'views/partials/new_review.html'"></nav>

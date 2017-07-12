@@ -1,29 +1,27 @@
-                      <div class="row ">
-                          <div  ng-show="showTravel" style="margin-top: 50px; margin-bottom: 50px" class="col-sm-6 card">
-                            <div>
-                            <h4>Driver</h4>
-                                <div ng-repeat="travel in travels" class="row yelp-card">
-                                <div class="col-2">
-                                <img class="business"  style="margin-top: 10px" src="http://lorempixel.com/140/140/" alt=""/>
-                                </div>
-                                <div class="col-7">
-                                <div class="row">
-                                  <h3 class="card-title">{{travel.origin}} to {{travel.destination}}</h3>
-                                </div>
-                                <div class="row">
-                                  <h3 class="card-title">Creator: {{travel.creator.firstName}} {{travel.creator.lastName}}</h3>
-                                </div>
-                                <div class="row">
-                                  <a href="">{{travel.creator.email}}</a>
-                                 </div>
-                                <div class="row">
-                                 </div>
-                                <div class="row">
-                                 Estimated time:{{travel.estimatedTime}}                                   
-                                </div>
-                                </div>
-                                  <a class="travel-link" style="margin-top: 120px;padding-bottom: 20px" href="#!/search/{{travel._id}}" class="btn btn-primary">See more details..</a>
-                                </div>     
-                                </div>
-                            </div>
-                        </div>
+	<div class="row ">
+			<div  ng-show="showTravel" style="margin-top: 50px; margin-bottom: 50px" class="col-sm-6 card">
+		<div>
+				<h4>Driver</h4>
+			<div ng-repeat="travel in travels" class="row yelp-card">
+				<div class="col-2">
+					<img class="business"  style="margin-top: 10px" src="http://lorempixel.com/140/140/" alt=""/>
+				</div>
+				<div class="col-7">
+					<div class="row">
+						<h3 class="card-title">{{travel.origin}} to {{travel.destination}}</h3>
+					</div>
+					<div class="row">
+						<h3 class="card-title">Creator: {{travel.creator.firstName}} {{travel.creator.lastName}}</h3>
+					</div>
+					<div class="row">
+						<a href="">{{travel.creator.email}}</a>
+					</div>
+					<div class="row">
+				 Estimated time:{{travel.estimatedTime}}                                   
+					</div>
+				</div>
+				<a class="travel-link" style="margin-top: 120px;padding-bottom: 20px" href="#!/search/{{travel._id}}" class="btn btn-primary">See more details..</a>
+				</div>     
+			</div>
+		</div>
+	</div>
