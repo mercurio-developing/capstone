@@ -16,8 +16,8 @@
     "url": "https://github.com/mercurio-developing/capstone/issues"
   },
   "homepage": "https://github.com/mercurio-developing/capstone#readme",
-  "engines":{
-    "node":"6.11.0"
+  "engines": {
+    "node": "6.11.0"
   },
   "dependencies": {
     "angular": "^1.5.3",
@@ -37,8 +37,10 @@
     "mongoose-deep-populate": "^3.0.0",
     "yelpv3": "^1.2.1",
     "@google/maps": "^0.4.1",
-    "jsonwebtoken": "^7.4.1",
     "mongoose-seeder": "^1.2.1",
     "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
   }
 }

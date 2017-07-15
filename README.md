@@ -13,3 +13,4 @@ Easy Travel is a rideshare app. It uses the service of Google Maps, Dark Sky, an
 Technical Info
 
 This app uses an Express REST API in the backend and the AngularJS framework in the frontend. Data is persisted in a MongoDb NoSQL database.
+mercur
